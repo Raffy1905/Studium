@@ -1,4 +1,211 @@
-\documentclass{style}
+\documentclass[12pt]{article}
+
+\usepackage{ragged2e}
+\justifying
+
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+\usepackage{microtype}
+\usepackage{float}
+\usepackage{hyperref}
+\renewcommand{\tablename}{Tabelle}
+
+\title{Beschte Onboarding}
+\date{\today}
+\author{Julian Thiele}
+
+
 \begin{document}
-\pi
-\end{document} 
+\sloppy
+
+\maketitle
+\newpage
+
+%---------------------------------------------------------------
+%
+%                   INTRODUCTION
+%
+%---------------------------------------------------------------
+
+\section{Einleitung}
+
+\subsection{Ausbildungsbetrieb}
+Die BREDEX GmbH wurde im Jahr 1987 in Braunschweig gegründet. Den Schwerpunkt 
+bildet die individuelle Softwareentwicklung, die BREDEX führt jedoch auch 
+Beratungen zu Datenschutz, Datensicherheit, Qualitätssicherung von Software 
+und Schulungen durch. Die BREDEX GmbH besitzt, mit seiner Tochterfirma BREDEX 
+HUNGARY KFT. zusammen, ca. 200 Mitarbeiter. 
+
+\subsection{Projektumfeld}
+Das Projekt wird unter der Aufsicht von Herr Christian Rucinski in den 
+Geschäftsräumen der BREDEX GmbH entwickelt. Bei der Anwendung handelt es sich 
+um ein BREDEX internes Tool. Sie soll für den Onboardingprozess neuer Mitarbeiter 
+eingesetzt werden und den sogenannten BREDEX Buddy, einen Ansprechpartner 
+neuer Mitarbeiter, bei seiner Arbeit unterstützen. 
+
+Das Frontend wird mit dem Framework Vue, bei welchem die Scriptsprache TypeScript 
+Anwendung findet, geschrieben. Als Backend wird Firebase als “Backend As a Service” 
+genutzt, in welche die NoSQL-Datenbank Firestore integriert ist.
+
+\subsection{Projektabgrenzung}
+Durch die Fachinformatikerausbildungsverordung wird das Projekt zeitlich auf 80 
+Stunden begrenzt.  
+
+Die Anwendung ist ein alleinstehendes Tool und wird daher in kein Projekt 
+eingegliedert. Daher gibt es keine weiteren Beschränkungen, auf die geachtet 
+werden muss.  
+
+\subsection{Abweichungen vom Projektantrag}
+Es gibt keine Abweichungen vom Projektantrag.
+
+
+%---------------------------------------------------------------
+%
+%                   Projektplanung
+%
+%---------------------------------------------------------------
+
+\section{Projektplanung}
+
+\subsection{Identifizierung der Arbeitspakete}
+Zu Beginn findet ein Anforderungsgespräch statt, bei dem die Projektziele 
+definiert werden und es keine Differenzen im Verständnis dieser gibt und es 
+definiert ist, welche Anforderungen erfüllt werden müssen. 
+
+Im Anschluss kommt die Analysephase, bei der Soll-Zustand niedergeschrieben wird.  
+
+Das dritte Paket bildet die Designphase, hierbei werden Benutzeroberfläche und 
+Datenmodell geplant.  
+
+Daraufhin folg die Entwicklung der Anwendung, bei der die Ergebnisse aus den 
+vorherigen Arbeitspaketen umgesetzt werden. Um mögliche Fehler während der 
+Implementierung frühzeitig zu erkennen und beheben zu können, finden Tests statt. 
+
+Im letzten Arbeitsschritt wird die Dokumentation des Projektes erstellt. 
+
+\subsection{Zeitplan}
+Das Projekt wird im Zeitraum vom 22.09.2023 bis zum 22.11.2023 bearbeitet. 
+Die im vorherigen Abschnitt erwähnten Arbeitspakete wurden in folgenden Zeitplan 
+(\hyperref[table:timeplan]{Tabelle \ref*{table:timeplan}}) eingeteilt. 
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|l | l|}
+        \hline
+        Arbeitspaket & Dauer (in h) \\
+        \hline
+        Anforderungsgespräch & 3 \\
+        Analysephase & 6 \\
+        Planungsphase & 6 \\
+        Designphase & 6 \\
+        Umsetzung & 40 \\
+        Test und Abnahme & 7 \\
+        Dokumentation & 12 \\
+        &\\
+        Gesamt & 80 \\
+        \hline
+    \end{tabular}
+    \caption{Zeitplan}
+    \label{table:timeplan}
+\end{table}
+
+\subsection{Ressourcenplanung}
+Um die kosten so gering wie möglich zu halten, wurde nach Möglichkeit nur
+kostenlose oder bereits vorhandene Software, sowie Hardware genutzt.
+Als Arbeitsgerät wurde von der BREDEX GmbH ein Laptop mit Windows 10 und der
+Entwicklungsumgebung VisualStudio Code bereitgestellt.
+Des Weiteren wurde Firabase mit Firestore als Datenbank und Git als 
+Versionsverwaltung eingesetzt.
+
+\subsection{Kostenplanung}
+Für den Prüfungsteilnehmer wird ein Stundenlohn von 9 EUR angesetzt.
+Ihm stehen für dei Bearbeitung 80 Stunden zur Verfügung.
+Der Projektbetreuer führt das Anforderungsgespräch durch und steht 
+dazu noch für weitere Fragen während der Bearbeitung zur Verfügung.
+Daher werden für ihn 6 Stunden angesetzt, bei einem geschätzten 
+Stundenlohn von 45 EUR
+Da nur bereits vorhandene oder kostenlose Ressourcen genutzt werden,
+ergeben sich keine weiteren Lizenz- oder Nutzungskosten.
+
+Als Gesamtkosten berechnen sich hiermit 990 EUR 
+(\hyperref[table:costs]{Tabelle \ref*{table:costs}}).
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|l|l|l|l|}
+        \hline
+        Akteur & Stundensatz (in EUR) & Dauer (in h) & Kosten (in EUR) \\
+        \hline
+        Prüfungsteilnehmer & 9 & 80 & 720 \\
+        Projektbetreuer & 45 & 6 & 270 \\
+        \textbf{Gesamtkosten} &&& \textbf{990} \\
+        \hline
+        
+    \end{tabular}
+    \caption{Kostenplan}
+    \label{table:costs}
+\end{table}
+
+
+\subsection{Amortisaionsdauer}
+
+Keine Ahnung, wie die genau geht :D
+
+
+
+%---------------------------------------------------------------
+%
+%                   Analysephase
+%
+%---------------------------------------------------------------
+
+\section{Analysephase}
+
+\subsection{Anforderungsgespräch}
+Als Erstes wurde ein Anfürderungsgespräch mit dem Kunden durchgeführt.
+In dem Gespräch wird der IST-Zustand ermittelt und das SOLL-Konzept definiert.
+
+
+
+%---------------------------------------------------------------
+%
+%                   Design
+%
+%---------------------------------------------------------------
+
+\section{Designphase}
+
+
+
+%---------------------------------------------------------------
+%
+%                   Implementierung
+%
+%---------------------------------------------------------------
+
+\section{Implementierung}
+
+
+
+%---------------------------------------------------------------
+%
+%                   Testphase
+%
+%---------------------------------------------------------------
+
+\section{Testphase}
+
+
+
+%---------------------------------------------------------------
+%
+%                   Fazit
+%
+%---------------------------------------------------------------
+
+\section{Fazit}
+
+
+
+\end{document}
