@@ -6,10 +6,13 @@
 \usepackage{helvet}
 \renewcommand{\familydefault}{\sfdefault}
 
+\usepackage[ngerman]{babel}
+
+\usepackage{pifont}
+
 \usepackage{microtype}
 \usepackage{float}
 \usepackage{hyperref}
-\renewcommand{\tablename}{Tabelle}
 
 \title{Beschte Onboarding}
 \date{\today}
@@ -20,6 +23,9 @@
 \sloppy
 
 \maketitle
+\newpage
+
+\tableofcontents
 \newpage
 
 %---------------------------------------------------------------
@@ -87,7 +93,7 @@ Im letzten Arbeitsschritt wird die Dokumentation des Projektes erstellt.
 \subsection{Zeitplan}
 Das Projekt wird im Zeitraum vom 22.09.2023 bis zum 22.11.2023 bearbeitet. 
 Die im vorherigen Abschnitt erwähnten Arbeitspakete wurden in folgenden Zeitplan 
-(\hyperref[table:timeplan]{Tabelle \ref*{table:timeplan}}) eingeteilt. 
+(\autoref{table:timeplan}) eingeteilt. 
 
 \begin{table}[H]
     \centering
@@ -128,8 +134,7 @@ Stundenlohn von 45 EUR
 Da nur bereits vorhandene oder kostenlose Ressourcen genutzt werden,
 ergeben sich keine weiteren Lizenz- oder Nutzungskosten.
 
-Als Gesamtkosten berechnen sich hiermit 990 EUR 
-(\hyperref[table:costs]{Tabelle \ref*{table:costs}}).
+Als Gesamtkosten berechnen sich hiermit 990 EUR (\autoref{table:costs}).
 
 \begin{table}[H]
     \centering
@@ -139,6 +144,7 @@ Als Gesamtkosten berechnen sich hiermit 990 EUR
         \hline
         Prüfungsteilnehmer & 9 & 80 & 720 \\
         Projektbetreuer & 45 & 6 & 270 \\
+        \hline
         \textbf{Gesamtkosten} &&& \textbf{990} \\
         \hline
         
@@ -148,7 +154,7 @@ Als Gesamtkosten berechnen sich hiermit 990 EUR
 \end{table}
 
 
-\subsection{Amortisaionsdauer}
+\subsection{Amortisaionsdauer / Nutzwertanalyse}
 
 Keine Ahnung, wie die genau geht :D
 
@@ -165,7 +171,40 @@ Keine Ahnung, wie die genau geht :D
 \subsection{Anforderungsgespräch}
 Als Erstes wurde ein Anfürderungsgespräch mit dem Kunden durchgeführt.
 In dem Gespräch wird der IST-Zustand ermittelt und das SOLL-Konzept definiert.
+Außerdem wurden die vom Kunden gewünschten Features der Amwendung übermittelt.
+Die wichtigsten Features der Anwendung sind:
 
+\begin{itemize}
+    \item Achievements, die abgehakt werden können
+    \item Rangliste, um sich mit Mitarbeiter*innen vergleichen zu können
+    \item Als Administrator Achievementliste bearbeiten können 
+\end{itemize}
+
+Dei Punkte wurden in dem Gespräch noch weiter konkretisiert, um die Anwendung
+im Anschluss möglichst nach den Wünschen des Kunden implementieren zu können.
+
+
+\subsection{IST-Zustand Analyse}
+
+Damit neue Mitarbeiter*innen der BREDEX GmbH besser in das Unternehmen
+finden, werden ihnen ein Ansprechpartner, den sogenannten BREDEX-Buddy
+an die Seite gestellt. Dieser soll dem*der Mitarbeiter*in das Unternehmen
+näherbringen. Allerdings ist nicht genau klar, was die Aufgaben des Buddys
+alles beinhalten. Es gibt unterschiedlichen Orten findet man Listen mit
+verschiedenen Inhalten. 
+Dadurch führen die Buddys ihre Aufgabe unterschiedlich aus.
+
+
+\subsection{SOLL-Konzept}
+
+Um in Zukunft dafür zu sorgen, dass alle Buddys ihre Aufgaben auf die gleiche Art
+und Weise zu erledigen soll es eine Webanwendung geben, bei der es eine Checkliste gibt,
+die neue Mitarbeiter*innen mit ihren Buddys abarbeiten können.
+
+Zudem soll es eine Rangliste geben, in der sich Mitarbeiter*innen gegnseitig
+sehen können, die zur selben Zeit angefangen haben. Diese Gamification soll
+die Motivation erhöhen, die Achievements zu erledigen, wodurch die neuen
+Mitarbeiter*innen sich mehr in das Unternehmen eingliedern.
 
 
 %---------------------------------------------------------------
@@ -176,6 +215,50 @@ In dem Gespräch wird der IST-Zustand ermittelt und das SOLL-Konzept definiert.
 
 \section{Designphase}
 
+\subsection{Benutzeroberfläche}
+
+Bei dem Design der Benutzeroberfläche (im Fologenden GUI genannt) wird
+besonders darauf geachtet, dass alle Daten möglichst übersichtlich
+dargestellt werden. Dazu werden für jede der großen Anforderungen
+jeweils einzelne Unterseiten (im folgendnen View genannt) unterteilt. 
+
+Hierbei gibt es eine View, um alle Achievements einehen zu können
+und diese abhaken zu können. Achievements werden zu verschiedenen
+Zeitpunkten freigeschaltet. Manche sind direkt verfügbar, machnche 
+nach einer Woche, einem Monat oder erst nach einem halben Jahr. 
+Entsprechend dieser Zeitstmpel sind die Achievements in Akkordeons
+gruppiert. Dies führt dazu, dass Achievements übersichtlich einsehbar
+sind.
+
+Eine weitere View gibt es für die Ansicht der Rangliste. Hier wird
+der derzeit eingeloggten Person eine Rangliste mit den Personen die
+zu einer ähnlichen Zeit angefangen habe angezeigt, mit Name, Email 
+und Punktzahl.
+
+Eine letzte View gibt es, um die Achievements verwalten zu können.
+Die View ist ähnlich aufgebaut, wie die Achievements-View. Die Achievements
+werden in Akkordeons gruppiert, jedoch befindet sich neben jedem Titel
+der Akkordeons ein weiterer Button, um neue Achievments für den Zeitpunkt
+hinzufügen zu können. Außerdem ist der Button um Achievements abzuhaken
+asugetauscht durch jeweils einen Button um das Achievement löschen oder 
+bearbeiten zu können.
+
+Beim Hinzufügen oder Bearbeiten eines Achievements öffnet sich ein
+Modaldialog, bei dem sich die Daten bearbeiten lassen und dann der
+Vorgang abgeschlossen werden kann. Hierbei werden fehlende Eingaben durch
+eine rote Umrandung des Eingabefeldes vermittelt.
+
+
+\subsection{Datenbank}
+
+Bei der Datenbank handelt es sich um die NoSQL Datenbank Firestore
+von Firebase. Die Daten werden in JSON-Format gespeichert. Hierbei wird
+von Sammlungen und Attributen gesprochen. Sammlungen JSON-Objekte, mit einer
+ID und einem Datensatz. Die Daten können entweder aus weiteren Sammlungen
+oder Attributen wie Intgern, Arrays oder ähnlichem bestehen.
+
+Um die Achievements und die Daten der Nutzer der Anwendung speichern zu können
+wurden in der Datenbank jeweils Sammlungen angelegt.
 
 
 %---------------------------------------------------------------
@@ -184,7 +267,25 @@ In dem Gespräch wird der IST-Zustand ermittelt und das SOLL-Konzept definiert.
 %
 %---------------------------------------------------------------
 
-\section{Implementierung}
+\section{Implementierungsphase}
+
+\subsection{Frontend}
+
+Im Frontend wird das Webframework Vue eingesetzt. Dieses baut auf den
+Standard Websprachen HTML, JavaScript und CSS auf. Vue nutzt
+komponentenbasierte Programmierung, indem es HTML um die Möglichkeit
+erweitert, Templates zu erzeugen, welche dann entsprechend dem Status des
+JavaScript Datei die Benutzeroberfläche erzeugen.
+In dieser Anwendung wird Vue genutzt um eine Single-Page Application zu
+erstellen.
+
+Standardmäßig wird in Vue die Scriptsprache JavaScript genutzt. Das Framework
+kann auch mit der Sprache TypeScript genutzt werden, wofür sich in diesem
+Projekt entschieden wurde, um die Vorteile von Typisierung nutzen zu können.
+Dadurch können gewisse Fehler bereits zur Kompilierzeit vom Compiler entdeckt werden,
+wodurch die Anwendung weniger Fehleranfällig wird.
+
+
 
 
 
