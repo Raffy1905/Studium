@@ -154,9 +154,9 @@ Als Gesamtkosten berechnen sich hiermit 990 EUR (\autoref{table:costs}).
 \end{table}
 
 
-\subsection{Amortisaionsdauer / Nutzwertanalyse}
+\subsection{Nutzwertanalyse}
 
-Keine Ahnung, wie die genau geht :D
+Kommt noch :D
 
 
 
@@ -276,8 +276,8 @@ Standard Websprachen HTML, JavaScript und CSS auf. Vue nutzt
 komponentenbasierte Programmierung, indem es HTML um die Möglichkeit
 erweitert, Templates zu erzeugen, welche dann entsprechend dem Status des
 JavaScript Datei die Benutzeroberfläche erzeugen.
-In dieser Anwendung wird Vue genutzt um eine Single-Page Application zu
-erstellen.
+In dieser Anwendung wird Vue-Routing genutzt um eine Single-Page Anwendung zu
+erstellen. Dafür wurde sich entschieden, da Single-Page Anwendungen eine 
 
 Standardmäßig wird in Vue die Scriptsprache JavaScript genutzt. Das Framework
 kann auch mit der Sprache TypeScript genutzt werden, wofür sich in diesem
@@ -285,6 +285,61 @@ Projekt entschieden wurde, um die Vorteile von Typisierung nutzen zu können.
 Dadurch können gewisse Fehler bereits zur Kompilierzeit vom Compiler entdeckt werden,
 wodurch die Anwendung weniger Fehleranfällig wird.
 
+
+Vue stellt seit Version 3.0 auch eine neue API zur Verfügung: die Composition API
+Die Vorteile der in Vue Standardmäßig genutzten Options API, ist die Möglichkeit
+den Code variabler und besser zu strukturieren, was die lesbarkeit und Qualitäts des
+Codes verbessert. Außerdem erleichtert die Composition API die Wiederverwendbarkeit
+von Code in verschiedenen Komponenten, was eine große Auswirkung auf Codequalität und
+Fehleranfällig hat.
+
+Für Styling wird das CSS-Framework Bootstrap genutzt, um einfacher ein modernes
+Design für die Anwendung erstellen zu können und sich auf die Porgrammierung des
+Projektes kümmern zu können.
+
+View organisiert die Website über mehrere Single-Page-Komponenten. Hierbei handelt
+es sich um eine Dateistruktur, bei der jede Datei seine eigene Komponente beinhält.
+Die Wurzelkomponente einer jeden Vue-Amwemdung stellt die App-Component dar. In dieser
+wird der <vue-router> Tag genutzt. Dadurch lässt sich ein Teil des Inhaltes der App-Komponente
+dynamisch mit anderen Komponenten austauschen.
+
+Als erstes wurde die Achievement-View erstellt, da es sich bei der View um die
+Hauptanforderung der Website handelt. Hier werden alle Achievements angezeigt, die
+der Benutzer erledigen kann und ob diese bereits erledigt wurden.
+Im oberen Teil der Website gibt es eine kurze Einführung und eine Fortschrittsleiste
+zeigt an, wie viel der Nutzer bereits geschafft hat.
+Jede Vue-Komponente hat
+hat seinen eigenen Lifcycle. Hierzu gehören beispielsweise das Erstellen, Mounten,
+Aktualisieren oder Unmounten der Komponente. Der OnMounted-Lifecycle Hook wird hier genutzt,
+um kurz vor dem Anzweigen der Komponente die Daten aus der Datenbank zu laden.
+Diese Vorgehensweise wird in anderen Komponenten ebenfalls genutzt, um Daten zu laden. 
+
+Als nächstes wird die Login-View erstellt. Da in der BREDEX GmbH Microsoft Accounts
+ganutzt werden, kann sich der Nutzer hier mit diesem Anmelden. Außerdem werden neue Nutzer
+erkannt, indem UUIDs verglichen werden und für jeweilige Nutzer neue Einträge in der
+Datenbank erstellt.
+
+Im Anschluss wurde die Rangliste erstellt. Beim Laden der Nutzer aus der Datenbank können
+zusätzliche Bedingungen angegeben werden. Dadurch werden nur benötigte Daten aus der
+Datenbank geladen, um weniger Speicherplatz im lokalen Speicher des Clients speichern zu benötigen.
+
+Die letzte View ist zum Verwalten der Achievements. Auf diese View sollen nur Personen
+mit bestimmten Gruppen Zugriff haben, wie beispielsweise die Personalabteilung. Dieser Zugriff
+kann mit dem Vue-Router implementiert werden, welcher eine Möglichkeit hat, eine Bedingung
+an die Weiterleitung an die Addresse zu binden. In dieser Bdeingung wird die Rolle des
+Nutzers abgefragt. Da diese bei der Anmeldung über Firebase nicht mit dem Access-Token
+übergeben wird, muss sich separat mit dem Azure Portal verbunden werden, um diese abzufragen.
+
+Um zuletzt die Mehrsprachigkeit umzusetzen, wird sich das Vue Plugin Vue I18N zunutze gemacht.
+In einer separaten Datei wird zu jedem Text der Anwendung im JSON-Format ein Key gespreichert und
+die jeweiligen Übersetzungen. In dem HTML-Template wird nun anstelle des Textes der Key eingetragen,
+welcher beim Erstellen der Komponente, je nach aktuell eingestellter Sprache, durch die Übersetzung
+ersetzt wird.
+
+%ref ?
+
+
+\subsection{Backend}
 
 
 
