@@ -341,6 +341,17 @@ ersetzt wird.
 
 \subsection{Backend}
 
+Für das Backend wird das Backend-As-A-Service Firebase genutzt. Darin sind verschiedene Optionen zur Benutzeranmeldung, 
+wovon nur die Anmeldung über Micorsoft genutzt wird, sowie die NoSQL Datenbank Firestore. 
+Als erstes muss das Backend mit der Software verbunden werden. Dafür muss als erstes die Firebase SDK mit dem Befehl
+
+\texttt{npm install firebase}\newline über Node.js installiert werden und im Anschluss in den
+Abhängigkeiten der Vue-Anwendung hinzugefügt werden.
+Nun muss nur noch die Vue-App mit den Firebase Einstellungen configuriert werden.
+
+Als nächstes wird die Datenbank erstellt. Die NoSQL Datenbank basiert auf JSON-ähnlichen
+Dateistrukturen. Man kann Sammlungen erstellen, mit verschiedenen Elementen. Es wird eine Sammlung erstellt für die Nutzer
+und eine Sammlung für die Achievements. 
 
 
 
