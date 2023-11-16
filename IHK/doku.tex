@@ -73,6 +73,8 @@ Es gibt keine Abweichungen vom Projektantrag.
 %---------------------------------------------------------------
 
 \section{Projektplanung}
+Bei der Projektplanung werden die benötigten Arbeitspakete identifiziert und geplant.
+Auch benötigte Kosten und Ressourcen werden abgeschätzt.
 
 \subsection{Identifizierung der Arbeitspakete}
 Zu Beginn findet ein Anforderungsgespräch statt, bei dem die Projektziele 
@@ -167,6 +169,8 @@ Kommt noch :D
 %---------------------------------------------------------------
 
 \section{Analysephase}
+In der Analysephase werden die Anforderungen definiert, sowie der IST-Zustand analysiert und das
+SOLL-Konzept entsickelt. Damit kann im Anschluss die Archtektur der Anwendung erstellt werden.
 
 \subsection{Anforderungsgespräch}
 Als Erstes wurde ein Anfürderungsgespräch mit dem Kunden durchgeführt.
@@ -214,6 +218,8 @@ Mitarbeiter*innen sich mehr in das Unternehmen eingliedern.
 %---------------------------------------------------------------
 
 \section{Designphase}
+In der Designphase werden Benutzeroberfläche und Datenmodelle der Anwendung geplant, um im
+vorhinein Schwierigkeiten oder Fehler erkennen zu können. 
 
 \subsection{Benutzeroberfläche}
 
@@ -238,7 +244,7 @@ und Punktzahl.
 Eine letzte View gibt es, um die Achievements verwalten zu können.
 Die View ist ähnlich aufgebaut, wie die Achievements-View. Die Achievements
 werden in Akkordeons gruppiert, jedoch befindet sich neben jedem Titel
-der Akkordeons ein weiterer Button, um neue Achievments für den Zeitpunkt
+der Akkordeons ein weiterer Button, um neue Achievements für den Zeitpunkt
 hinzufügen zu können. Außerdem ist der Button um Achievements abzuhaken
 asugetauscht durch jeweils einen Button um das Achievement löschen oder 
 bearbeiten zu können.
@@ -268,8 +274,13 @@ wurden in der Datenbank jeweils Sammlungen angelegt.
 %---------------------------------------------------------------
 
 \section{Implementierungsphase}
+In der Implementierungsphase wird die Anwendung programmiert. Hierbei wird sich an den,
+in der Planung erstellten, Strukturen und Modellen bedient, um die Software möglichst ohne
+Komplikationen umsetzen zu können.
 
 \subsection{Frontend}
+
+% installation
 
 Im Frontend wird das Webframework Vue eingesetzt. Dieses baut auf den
 Standard Websprachen HTML, JavaScript und CSS auf. Vue nutzt
@@ -277,7 +288,7 @@ komponentenbasierte Programmierung, indem es HTML um die Möglichkeit
 erweitert, Templates zu erzeugen, welche dann entsprechend dem Status des
 JavaScript Datei die Benutzeroberfläche erzeugen.
 In dieser Anwendung wird Vue-Routing genutzt um eine Single-Page Anwendung zu
-erstellen. Dafür wurde sich entschieden, da Single-Page Anwendungen eine 
+erstellen. 
 
 Standardmäßig wird in Vue die Scriptsprache JavaScript genutzt. Das Framework
 kann auch mit der Sprache TypeScript genutzt werden, wofür sich in diesem
@@ -301,7 +312,7 @@ View organisiert die Website über mehrere Single-Page-Komponenten. Hierbei hand
 es sich um eine Dateistruktur, bei der jede Datei seine eigene Komponente beinhält.
 Die Wurzelkomponente einer jeden Vue-Amwemdung stellt die App-Component dar. In dieser
 wird der <vue-router> Tag genutzt. Dadurch lässt sich ein Teil des Inhaltes der App-Komponente
-dynamisch mit anderen Komponenten austauschen.
+dynamisch mit anderen Komponenten austauschen. % Header mit v-if
 
 Als erstes wurde die Achievement-View erstellt, da es sich bei der View um die
 Hauptanforderung der Website handelt. Hier werden alle Achievements angezeigt, die
@@ -336,6 +347,11 @@ die jeweiligen Übersetzungen. In dem HTML-Template wird nun anstelle des Textes
 welcher beim Erstellen der Komponente, je nach aktuell eingestellter Sprache, durch die Übersetzung
 ersetzt wird.
 
+Um die Anwendung bei Änderungen von Werten automatisch zu aktualisieren, gibt es in Vue ein Attribut, das eine
+Variable erhalten kann: das \textit{Ref}. Vue rendert das DOM, bevor es auf dem Bildschirm dargestellt wird.
+Dadurch werden im Nachhinein veränderte Werte nicht mehr dargesetellt. Refs haben hierbei einen Sonderstatus.
+Sobald sich die Variable mit dem Attribut ändert, wird die Komponente mit dem neuen Wert neu berechnet.
+
 %ref ?
 
 
@@ -350,9 +366,23 @@ Abhängigkeiten der Vue-Anwendung hinzugefügt werden.
 Nun muss nur noch die Vue-App mit den Firebase Einstellungen configuriert werden.
 
 Als nächstes wird die Datenbank erstellt. Die NoSQL Datenbank basiert auf JSON-ähnlichen
-Dateistrukturen. Man kann Sammlungen erstellen, mit verschiedenen Elementen. Es wird eine Sammlung erstellt für die Nutzer
+Dateistrukturen. Man kann Sammlungen erstellen, mit verschiedenen Elementen. Diese Elements haben jeweils eine ID, welche
+in einer Zeichenkette gespeichert wird. Es wird eine Sammlung erstellt für die Nutzer
 und eine Sammlung für die Achievements. 
 
+Die Achievements müssen für beidem Sprachen ihren Text enthalten. Diese werden jeweils in einer Zeichenkette gespeichert.
+Des weiteren muss der Zeitpunkt gespeichert werden, in dem das Achievement freigeschaltet werden. Da es 4 verschiedene
+mögliche Zeitpunkte gibt diese freizuschalten, wurde sich dazu entschieden, das Attribut in einem Wert von 0 bis 3 zu speichern.
+Dadurch können die Achievements leich gruppiert und mit einem Zähler iteriert werden.
+Die Punkte, die jedes Achievement hat, werden in einer Ganzzahl gespeichert.
+
+Für die ID des Nutzers, wird beim Anlegen diesen, die Micorsoft UUID genutzt. So kann nach der Anmeldung leicht wieder auf die
+Daten zugegriffen werden. Abgesehen von der ID wird für den Nutzer der Zeitpunkt gespeichert, an der sich der Nutzer das erste mal
+angemeldet hat. Dadurch kann beim Abruf der Nutzer für die Rangliste bereits in der Datenbank gefiltert werden.
+Weiterhin werden noch Stammdaten wie Name oder Email-Addresse gespeichert.
+Zuletzt wird für jeden Nutzer noch eine Liste an Zeichenketten gepeichert. Diese Liste beinhält alle IDs der Achievements, die der
+Nutzer bereits erledigt hat. Über diese IDs kann sich effizient die Liste an erledigten Achievements geholt werden, um Punkte oder
+die prozentuelle Anzahl erlediger Achievements zu berechnen.
 
 
 %---------------------------------------------------------------
