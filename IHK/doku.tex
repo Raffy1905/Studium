@@ -13,6 +13,14 @@
 \usepackage{microtype}
 \usepackage{float}
 \usepackage{hyperref}
+\usepackage[margin=1.25in]{geometry}
+\usepackage{multirow,tabularx}
+\newcolumntype{S}{>{\hsize=.75\hsize\arraybackslash}X}
+\newcolumntype{N}{>{\hsize=1\hsize\arraybackslash}X}
+\newcolumntype{B}{>{\hsize=1.5\hsize\arraybackslash}X}
+\renewcommand{\arraystretch}{1.5}
+
+\usepackage{verbatimbox}
 
 \title{Beschte Onboarding}
 \date{\today}
@@ -41,7 +49,7 @@ Die BREDEX GmbH wurde im Jahr 1987 in Braunschweig gegründet. Den Schwerpunkt
 bildet die individuelle Softwareentwicklung, die BREDEX führt jedoch auch 
 Beratungen zu Datenschutz, Datensicherheit, Qualitätssicherung von Software 
 und Schulungen durch. Die BREDEX GmbH besitzt, mit seiner Tochterfirma BREDEX 
-HUNGARY KFT. zusammen, ca. 200 Mitarbeiter. 
+HUNGARY KFT. zusammen, ca. 200 Mitarbeiter, mit ungefähr 10 Auszubildenden und dualen Studenten.  % Azubis / Dualis?
 
 \subsection{Projektumfeld}
 Das Projekt wird unter der Aufsicht von Herr Christian Rucinski in den 
@@ -78,10 +86,10 @@ Auch benötigte Kosten und Ressourcen werden abgeschätzt.
 
 \subsection{Identifizierung der Arbeitspakete}
 Zu Beginn findet ein Anforderungsgespräch statt, bei dem die Projektziele 
-definiert werden und es keine Differenzen im Verständnis dieser gibt und es 
-definiert ist, welche Anforderungen erfüllt werden müssen. 
+definiert werden, damit es keine Differenzen im Verständnis dieser gibt. Außerden ist hierdurch
+definiert, welche Anforderungen erfüllt werden müssen. 
 
-Im Anschluss kommt die Analysephase, bei der Soll-Zustand niedergeschrieben wird.  
+Im Anschluss kommt die Analysephase, bei der der Soll-Zustand niedergeschrieben wird.  
 
 Das dritte Paket bildet die Designphase, hierbei werden Benutzeroberfläche und 
 Datenmodell geplant.  
@@ -101,7 +109,8 @@ Die im vorherigen Abschnitt erwähnten Arbeitspakete wurden in folgenden Zeitpla
     \centering
     \begin{tabular}{|l | l|}
         \hline
-        Arbeitspaket & Dauer (in h) \\
+        Arbeitspaket & Dauer \\
+        & (in Stunden) \\
         \hline
         Anforderungsgespräch & 3 \\
         Analysephase & 6 \\
@@ -110,8 +119,8 @@ Die im vorherigen Abschnitt erwähnten Arbeitspakete wurden in folgenden Zeitpla
         Umsetzung & 40 \\
         Test und Abnahme & 7 \\
         Dokumentation & 12 \\
-        &\\
-        Gesamt & 80 \\
+        \hline
+        \textbf{Gesamt} & \textbf{80} \\
         \hline
     \end{tabular}
     \caption{Zeitplan}
@@ -119,16 +128,16 @@ Die im vorherigen Abschnitt erwähnten Arbeitspakete wurden in folgenden Zeitpla
 \end{table}
 
 \subsection{Ressourcenplanung}
-Um die kosten so gering wie möglich zu halten, wurde nach Möglichkeit nur
+Um die Kosten so gering wie möglich zu halten, wurde nach Möglichkeit nur
 kostenlose oder bereits vorhandene Software, sowie Hardware genutzt.
 Als Arbeitsgerät wurde von der BREDEX GmbH ein Laptop mit Windows 10 und der
 Entwicklungsumgebung VisualStudio Code bereitgestellt.
-Des Weiteren wurde Firabase mit Firestore als Datenbank und Git als 
+Des Weiteren wurde Firebase mit Firestore als Datenbank und Git als 
 Versionsverwaltung eingesetzt.
 
 \subsection{Kostenplanung}
 Für den Prüfungsteilnehmer wird ein Stundenlohn von 9 EUR angesetzt.
-Ihm stehen für dei Bearbeitung 80 Stunden zur Verfügung.
+Ihm stehen für die Bearbeitung 80 Stunden zur Verfügung.
 Der Projektbetreuer führt das Anforderungsgespräch durch und steht 
 dazu noch für weitere Fragen während der Bearbeitung zur Verfügung.
 Daher werden für ihn 6 Stunden angesetzt, bei einem geschätzten 
@@ -142,7 +151,8 @@ Als Gesamtkosten berechnen sich hiermit 990 EUR (\autoref{table:costs}).
     \centering
     \begin{tabular}{|l|l|l|l|}
         \hline
-        Akteur & Stundensatz (in EUR) & Dauer (in h) & Kosten (in EUR) \\
+        Akteur & Stundensatz & Dauer & Kosten \\
+        & (in EUR) & (in Stunden) & (in EUR) \\
         \hline
         Prüfungsteilnehmer & 9 & 80 & 720 \\
         Projektbetreuer & 45 & 6 & 270 \\
@@ -158,7 +168,50 @@ Als Gesamtkosten berechnen sich hiermit 990 EUR (\autoref{table:costs}).
 
 \subsection{Nutzwertanalyse}
 
-Kommt noch :D
+Der Sinn der Anwendung liegt darin, den Prozess der Einarbeitung zu erleichtern. Unter diesem Gesichtspunkt wird der alte Prozess
+mit dem neuen Prozess, der die Anwendung nutzt, verglichen.
+
+Am wichtigsten ist hierbei die Benutzerfreundlichkeit (Usability). Im alten Prozess mussten alle Aufgaben per Hand aus einer Word-Datei in eine eigene
+Liste kopiert werden und bei Erfüllung manuell durch Emojis abgehakt oder aus der eigenen Liste gelöscht werden. 
+Außerdem mussten alle Aufgaben für nicht-deutschsprachige Mitarbeiter*innen vom Buddy selbst übersetzt werden.\newline
+In der Anwendung sind die Aufgaben über die Achievements direkt in einer Liste gesammelt und können durch einen einfachen Klick abgehakt werden.
+Die Sprache kann über einen Button in der Anwendung einfach umgestellt werden.
+
+Der nächste Punkt ist die Einheitlichkeit. Derzeit gibt es unterschiedliche Listen mit verschiedenen Aufgaben. Je nach dem, welche Liste der
+Buddy nutzt, werden unterschiedliche Aufgaben erledigt. \newline
+Mit der Anwendung gibt es eine gesammelte Liste an Achievements, die von den Buddys genutzt wird. Zusätzlich kann diese Liste jederzeit von 
+zuständigen Personen angepasst werden, sollte es Änderungen für die Einarbeitung geben.
+
+Die Motivation diese Aufgaben zu erledigen steigt mit der Anwendung deutlich an. Der Vorgang, die Aufgaben zu suchen, und alles manuell kopieren
+zu müssen ist umständlich, was die Motivation senkt, sich darum zu kümmern. Mit der Anwendung müssen die Aufgaben nicht mehr gesucht werden, sondern
+sind einfach in der Applikation einsehbar. Außerdem erhält die Einarbeitung durch die Rangliste eine Gamification. Dadurch wird die Motivation gesteigert, 
+da man sich mit seinen Mitarbeiter*innen messen kann und ein kleiner Wettbewerb entsteht.
+
+Zuletzt wird noch die Sicherheit betrachtet. Die alten Dateien an Aufgaben lagen in zentralem Cloudspeicher und konnten von allem Mitarbeiter*innen bearbeitet werden 
+oder neu erstellt werden. Mit der neuen Anwendung können nur noch zuständige Personen auf die Liste direkt zugreifen und diese bearbeiten.  
+
+\begin{table}[H]
+    \addvbuffer[0pt 4pt]{\begin{tabularx}{\textwidth}{|B|N|S|N|S|N|}
+        \hline
+        \multirow{2}{*}{Kriterium} & \multirow{2}{*}{Gewichtung}
+        &\multicolumn{2}{c|}{Alte Struktur}&\multicolumn{2}{c|}{Neue Struktur}\\
+        \cline{3-6}
+        &&Erfüllung & Nutzwert & Erfüllung & Nutzwert \\
+        \hline
+        \hline
+        \textbf{Usability}          &  50\% & 2 & 1   &  4 & 2   \\
+        \textbf{Einheitlichkeit}    &  30\% & 2 & 0,6 &  4 & 1,2 \\
+        \textbf{Motivation}         &  10\% & 1 & 0,1 &  4 & 0,4 \\
+        \textbf{Sicherheit}         &  10\% & 2 & 0,2 &  4 & 0,4 \\
+        \hline
+        \hline
+        \textbf{SUMME}              & 100\% & 7 & 1,9 & 15 & 4,0 \\
+        \hline
+    \end{tabularx}}
+    Bewertungsmaßstab: 5 = sehr hoch, 4 = hoch, 3 = mittel, 2 = gering, 1 = sehr gering
+    \caption{Nutzwertanalyse}
+    \label{table:weightedsum}
+\end{table}
 
 
 
@@ -170,7 +223,7 @@ Kommt noch :D
 
 \section{Analysephase}
 In der Analysephase werden die Anforderungen definiert, sowie der IST-Zustand analysiert und das
-SOLL-Konzept entsickelt. Damit kann im Anschluss die Archtektur der Anwendung erstellt werden.
+SOLL-Konzept entsickelt. Damit kann im Anschluss die Architektur der Anwendung erstellt werden.
 
 \subsection{Anforderungsgespräch}
 Als Erstes wurde ein Anfürderungsgespräch mit dem Kunden durchgeführt.
@@ -178,13 +231,14 @@ In dem Gespräch wird der IST-Zustand ermittelt und das SOLL-Konzept definiert.
 Außerdem wurden die vom Kunden gewünschten Features der Amwendung übermittelt.
 Die wichtigsten Features der Anwendung sind:
 
-\begin{itemize}
+\begin{itemize} 
     \item Achievements, die abgehakt werden können
     \item Rangliste, um sich mit Mitarbeiter*innen vergleichen zu können
     \item Als Administrator Achievementliste bearbeiten können 
+    \item Mehrsprachigkeit in Deutsch und Englisch
 \end{itemize}
 
-Dei Punkte wurden in dem Gespräch noch weiter konkretisiert, um die Anwendung
+Die Punkte wurden in dem Gespräch noch weiter konkretisiert, um die Anwendung
 im Anschluss möglichst nach den Wünschen des Kunden implementieren zu können.
 
 
@@ -194,21 +248,30 @@ Damit neue Mitarbeiter*innen der BREDEX GmbH besser in das Unternehmen
 finden, werden ihnen ein Ansprechpartner, den sogenannten BREDEX-Buddy
 an die Seite gestellt. Dieser soll dem*der Mitarbeiter*in das Unternehmen
 näherbringen. Allerdings ist nicht genau klar, was die Aufgaben des Buddys
-alles beinhalten. Es gibt unterschiedlichen Orten findet man Listen mit
-verschiedenen Inhalten. 
-Dadurch führen die Buddys ihre Aufgabe unterschiedlich aus.
+alles beinhalten. Es gibt unterschiedlichen Orten, an denen man Listen mit
+verschiedenen Inhalten findet. 
+Dadurch führen die Buddys ihre Aufgabe unterschiedlich aus. Daraus resultiert, 
+dass Mitarbeiter*innen unterschiedlich eingearbeitet werden und es besteht die
+Möglichkeit, dass Punkte vergessen oder vernachlässigt werden. \newline % Problem? -d
+Zudem ist der Prozess sehr umständlich. Die Aufgaben müssen aus der Datei in eine Eigene kopiert werden,
+um sie abhaken zu können. Das Abhaken der erfolgt händisch über Löschen der Einträge, Einfügen eines Emojis
+oder Ähnlichem. 
 
 
 \subsection{SOLL-Konzept}
 
 Um in Zukunft dafür zu sorgen, dass alle Buddys ihre Aufgaben auf die gleiche Art
-und Weise zu erledigen soll es eine Webanwendung geben, bei der es eine Checkliste gibt,
-die neue Mitarbeiter*innen mit ihren Buddys abarbeiten können.
+und Weise zu erledigen und des Prozess im Allgemeinen zu vereinfachen, soll eine Webanwendung programmiert werden. 
+In der Anwendung soll es eine Checkliste an Achievements geben, die neue Mitarbeiter*innen im Verlauf ihrer Einarbeitung
+mit ihren Buddys zusammen abarbeiten können.
 
-Zudem soll es eine Rangliste geben, in der sich Mitarbeiter*innen gegnseitig
-sehen können, die zur selben Zeit angefangen haben. Diese Gamification soll
-die Motivation erhöhen, die Achievements zu erledigen, wodurch die neuen
+Zudem soll es eine Rangliste geben, in der sich Mitarbeiter*innen, die zur selben Zeit angefangen haben, gegenseitig
+sehen können. Diese Gamification soll die Motivation erhöhen, die Achievements zu erledigen, wodurch die neuen
 Mitarbeiter*innen sich mehr in das Unternehmen eingliedern.
+
+Um die Achievements aktualisieren zu können, soll es noch eine Seite geben, bei der ausgewählte
+Personen neue Achievements anlegen, bearbeiten oder auch löschen können. Andere Personen sollen
+diese Seite weder sehen, noch darauf zugreifen können.
 
 
 %---------------------------------------------------------------
@@ -223,14 +286,14 @@ vorhinein Schwierigkeiten oder Fehler erkennen zu können.
 
 \subsection{Benutzeroberfläche}
 
-Bei dem Design der Benutzeroberfläche (im Fologenden GUI genannt) wird
+Bei dem Design der Benutzeroberfläche (im folgenden GUI genannt) wird
 besonders darauf geachtet, dass alle Daten möglichst übersichtlich
 dargestellt werden. Dazu werden für jede der großen Anforderungen
-jeweils einzelne Unterseiten (im folgendnen View genannt) unterteilt. 
+jeweils einzelne Unterseiten (im folgenden View genannt) unterteilt. 
 
 Hierbei gibt es eine View, um alle Achievements einehen zu können
 und diese abhaken zu können. Achievements werden zu verschiedenen
-Zeitpunkten freigeschaltet. Manche sind direkt verfügbar, machnche 
+Zeitpunkten freigeschaltet. Manche sind direkt verfügbar, manche 
 nach einer Woche, einem Monat oder erst nach einem halben Jahr. 
 Entsprechend dieser Zeitstmpel sind die Achievements in Akkordeons
 gruppiert. Dies führt dazu, dass Achievements übersichtlich einsehbar
@@ -258,13 +321,14 @@ eine rote Umrandung des Eingabefeldes vermittelt.
 \subsection{Datenbank}
 
 Bei der Datenbank handelt es sich um die NoSQL Datenbank Firestore
-von Firebase. Die Daten werden in JSON-Format gespeichert. Hierbei wird
-von Sammlungen und Attributen gesprochen. Sammlungen JSON-Objekte, mit einer
-ID und einem Datensatz. Die Daten können entweder aus weiteren Sammlungen
-oder Attributen wie Intgern, Arrays oder ähnlichem bestehen.
+von Firebase. Die Daten werden im JSON-Format gespeichert. Hierbei wird
+von Sammlungen und Attributen gesprochen. Sammlungen sind mehrer JSON-Objekte, mit einer
+ID und einem Datensatz. Diese Datensötze können aus weiteren Sammlungen
+oder Attributen wie Zahlen, Arrays oder ähnlichem bestehen.
 
 Um die Achievements und die Daten der Nutzer der Anwendung speichern zu können
 wurden in der Datenbank jeweils Sammlungen angelegt.
+% hiervor könntest du noch dediziert schreiben wofür eine Sammlung steht. Das wird hier nicht klar -- jetzt klar?
 
 
 %---------------------------------------------------------------
@@ -283,10 +347,10 @@ Komplikationen umsetzen zu können.
 % installation
 
 Im Frontend wird das Webframework Vue eingesetzt. Dieses baut auf den
-Standard Websprachen HTML, JavaScript und CSS auf. Vue nutzt
-komponentenbasierte Programmierung, indem es HTML um die Möglichkeit
-erweitert, Templates zu erzeugen, welche dann entsprechend dem Status des
-JavaScript Datei die Benutzeroberfläche erzeugen.
+Standard Websprachen HTML, JavaScript und CSS auf. 
+Vue nutzt komponentenbasierte Programmierung, indem es HTML um die Möglichkeit
+erweitert, Templates zu erzeugen. Diese Templates werden dann entsprechend dem zugrunde 
+liegenden Java-Scripts die GUI erzeugen. % Erklärung besser ?
 In dieser Anwendung wird Vue-Routing genutzt um eine Single-Page Anwendung zu
 erstellen. 
 
@@ -297,22 +361,23 @@ Dadurch können gewisse Fehler bereits zur Kompilierzeit vom Compiler entdeckt w
 wodurch die Anwendung weniger Fehleranfällig wird.
 
 
-Vue stellt seit Version 3.0 auch eine neue API zur Verfügung: die Composition API
-Die Vorteile der in Vue Standardmäßig genutzten Options API, ist die Möglichkeit
-den Code variabler und besser zu strukturieren, was die lesbarkeit und Qualitäts des
-Codes verbessert. Außerdem erleichtert die Composition API die Wiederverwendbarkeit
+Vue stellt seit Version 3.0 auch eine neue API zur Verfügung: die Composition API.
+Die Vorteile gegenüber der, in Vue Standardmäßig genutzten, Options API, ist die Möglichkeit
+den Code variabler und besser zu strukturieren. Dies verbessert die lesbarkeit und Qualitäts des
+Codes. Außerdem erleichtert die Composition API die Wiederverwendbarkeit
 von Code in verschiedenen Komponenten, was eine große Auswirkung auf Codequalität und
 Fehleranfällig hat.
 
 Für Styling wird das CSS-Framework Bootstrap genutzt, um einfacher ein modernes
-Design für die Anwendung erstellen zu können und sich auf die Porgrammierung des
-Projektes kümmern zu können.
+Design für die Anwendung erstellen zu können und sich auf die Programmierung des
+Projektes konzentrieren zu können.
 
-View organisiert die Website über mehrere Single-Page-Komponenten. Hierbei handelt
-es sich um eine Dateistruktur, bei der jede Datei seine eigene Komponente beinhält.
-Die Wurzelkomponente einer jeden Vue-Amwemdung stellt die App-Component dar. In dieser
-wird der <vue-router> Tag genutzt. Dadurch lässt sich ein Teil des Inhaltes der App-Komponente
-dynamisch mit anderen Komponenten austauschen. % Header mit v-if
+% Zu detailliert / Überflüssig?
+% View organisiert die Website über mehrere Single-Page-Komponenten. Hierbei handelt
+% es sich um eine Dateistruktur, bei der jede Datei seine eigene Komponente beinhält.
+% Die Wurzelkomponente einer jeden Vue-Amwemdung stellt die App-Component dar. In dieser
+% wird der <vue-router> Tag genutzt. Dadurch lässt sich ein Teil des Inhaltes der App-Komponente
+% dynamisch mit anderen Komponenten austauschen. % Header mit v-if
 
 Als erstes wurde die Achievement-View erstellt, da es sich bei der View um die
 Hauptanforderung der Website handelt. Hier werden alle Achievements angezeigt, die
@@ -320,29 +385,28 @@ der Benutzer erledigen kann und ob diese bereits erledigt wurden.
 Im oberen Teil der Website gibt es eine kurze Einführung und eine Fortschrittsleiste
 zeigt an, wie viel der Nutzer bereits geschafft hat.
 Jede Vue-Komponente hat
-hat seinen eigenen Lifcycle. Hierzu gehören beispielsweise das Erstellen, Mounten,
+hat seinen eigenen Lifecycle. Hierzu gehören beispielsweise das Erstellen, Mounten,
 Aktualisieren oder Unmounten der Komponente. Der OnMounted-Lifecycle Hook wird hier genutzt,
-um kurz vor dem Anzweigen der Komponente die Daten aus der Datenbank zu laden.
+um kurz vor dem Anzeigen der Komponente, die Daten aus der Datenbank zu laden.
 Diese Vorgehensweise wird in anderen Komponenten ebenfalls genutzt, um Daten zu laden. 
 
 Als nächstes wird die Login-View erstellt. Da in der BREDEX GmbH Microsoft Accounts
-ganutzt werden, kann sich der Nutzer hier mit diesem Anmelden. Außerdem werden neue Nutzer
+genutzt werden, kann sich der Nutzer hier mit diesem Anmelden. Außerdem werden neue Nutzer
 erkannt, indem UUIDs verglichen werden und für jeweilige Nutzer neue Einträge in der
 Datenbank erstellt.
 
-Im Anschluss wurde die Rangliste erstellt. Beim Laden der Nutzer aus der Datenbank können
-zusätzliche Bedingungen angegeben werden. Dadurch werden nur benötigte Daten aus der
-Datenbank geladen, um weniger Speicherplatz im lokalen Speicher des Clients speichern zu benötigen.
+Im Anschluss wurde die Rangliste erstellt. Hier werden Mitarbeiter*innen, die bis zu einem Monat vor oder
+nach einem angefangen haben Tabellenartig mit Name, Punktzahl dargestellt. % unnötig? -d
 
 Die letzte View ist zum Verwalten der Achievements. Auf diese View sollen nur Personen
 mit bestimmten Gruppen Zugriff haben, wie beispielsweise die Personalabteilung. Dieser Zugriff
 kann mit dem Vue-Router implementiert werden, welcher eine Möglichkeit hat, eine Bedingung
-an die Weiterleitung an die Addresse zu binden. In dieser Bdeingung wird die Rolle des
+an die Weiterleitung an die Addresse zu binden. In dieser Bedingung wird die Rolle des
 Nutzers abgefragt. Da diese bei der Anmeldung über Firebase nicht mit dem Access-Token
 übergeben wird, muss sich separat mit dem Azure Portal verbunden werden, um diese abzufragen.
 
 Um zuletzt die Mehrsprachigkeit umzusetzen, wird sich das Vue Plugin Vue I18N zunutze gemacht.
-In einer separaten Datei wird zu jedem Text der Anwendung im JSON-Format ein Key gespreichert und
+In einer separaten Datei wird zu jedem Text der Anwendung im JSON-Format ein Key gespeichert und
 die jeweiligen Übersetzungen. In dem HTML-Template wird nun anstelle des Textes der Key eingetragen,
 welcher beim Erstellen der Komponente, je nach aktuell eingestellter Sprache, durch die Übersetzung
 ersetzt wird.
@@ -371,9 +435,9 @@ in einer Zeichenkette gespeichert wird. Es wird eine Sammlung erstellt für die 
 und eine Sammlung für die Achievements. 
 
 Die Achievements müssen für beidem Sprachen ihren Text enthalten. Diese werden jeweils in einer Zeichenkette gespeichert.
-Des weiteren muss der Zeitpunkt gespeichert werden, in dem das Achievement freigeschaltet werden. Da es 4 verschiedene
-mögliche Zeitpunkte gibt diese freizuschalten, wurde sich dazu entschieden, das Attribut in einem Wert von 0 bis 3 zu speichern.
-Dadurch können die Achievements leich gruppiert und mit einem Zähler iteriert werden.
+Des weiteren muss der Zeitpunkt gespeichert werden, in dem das Achievement freigeschaltet werden. Da diese an vier verschiedenen
+möglichen Zeitpunkten freigeschaltet werden können, wurde sich dazu entschieden, das Attribut in einem Wert von 0 bis 3 zu speichern.
+Dadurch können die Achievements leicht gruppiert und mit einem Zähler iteriert werden.
 Die Punkte, die jedes Achievement hat, werden in einer Ganzzahl gespeichert.
 
 Für die ID des Nutzers, wird beim Anlegen diesen, die Micorsoft UUID genutzt. So kann nach der Anmeldung leicht wieder auf die
@@ -393,6 +457,14 @@ die prozentuelle Anzahl erlediger Achievements zu berechnen.
 
 \section{Testphase}
 
+Um die korrekte Arbeitsweise der Anwendung zu garantieren, werden während der Entwicklung regelmäßig Tests durchgeführt.
+Mithilfe von Unit-Tests wurde während der Entwicklungsphase sichergestellt, dass Methoden korrekt funktionieren. Durch exploratives
+Testen wurde außerdem sichergestellt, dass die Anwendung bei Eingaben das erwartete Verhalten erfüllt und keine ungültigen
+Eingaben getätigt werden können.
+
+Da bei der Software die Usability im Vordergrund steht, wurden zusätzlich Usertests durchgeführt.
+Außerdem gab es Code Reviews von erfahreneren Entwicklern, um Codequalität sicherzustellen, oder effizientere Wege gezeigt zu bekommen,
+um diese im Anschluss anwenden zu können.
 
 
 %---------------------------------------------------------------
@@ -403,6 +475,54 @@ die prozentuelle Anzahl erlediger Achievements zu berechnen.
 
 \section{Fazit}
 
+%\subsection{Abnahme}
+
+%idk
+
+\subsection{Soll/Ist-Vergleich}
+
+Während der Durchführung der Porjektarbeit kam es zu kleinen Differenzen zu der initialen Zeitplanung.
+
+Da ein paar Anforderungen während der Implementierungsphasehinzu kamen, musste in die Designphase zurückgewechselt werden, da
+das Design erst überarbeitet werden musste, um den neuen Anforderungen
+gerecht zu werden. Dieser Aufwand kostete den Prüfungsteilnehmer in etwa eine Stunde. Auch in der Implementierungsphase
+kam es durch wenige Kenntnisse in der Webentwicklung und über das Vue Framework zu einigen Verzögerungen.
+Die dadurch entstandenen Verzögerungen konnten jedoch durch gut gewählte Bibliotheken wieder aufgeholt werden und
+zudem die verlorene Zeit aus der Designphase ausgeglichen werden. 
+
+In den restlichen Phasen kam es zu keinen weiteren Abweichungen.\newline
+Ein graphischen Vergleich der Änderungen der Zeitplanung bietet \autoref{table:timediff}.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|l|l|l|l|}
+        \hline
+        Phase & geplante Dauer & tatsächliche Dauer & Differenz \\
+        & (in Stunden) & (in Stunden) & (in Stunden) \\
+        \hline
+        Anforderungsgespräch & 3  & 3 &  0 \\
+        Analysephase & 6 & 6 &  0 \\
+        Planungsphase & 6 & 6 &  0 \\
+        Designphase & 6 & 7 & +1 \\
+        Umsetzung & 40 & 39 & -1 \\
+        Test und Abnahme & 7 & 7 &  0 \\
+        Dokumentation & 12 & 12 &  0 \\
+        &&& \\
+        \hline
+        \textbf{Gesamt} & \textbf{80} & \textbf{80} & \textbf{+-0} \\
+        \hline
+    \end{tabular}
+    \caption{Zeitplanung; Differenzen}
+    \label{table:timediff}
+\end{table}
+
+
+\subsection{Lessons learned}
+
+Während des Projektes lernte der Prüfungsteilnehmer sehr viel über Webentwicklung und das Erstellen und Umsetzen von Projekten.
+Vor allem die Wichtigkeit und Auswirkung einer guten Design und Analysephase in einem Projekt haben sich gezeigt.
+Aber auch die Wahl von Technologie und genutzten Bibliotheken können einen großen Einfluss auf den flüssigen und schnellen
+Ablauf der Softwareentwicklung haben.
 
 
 \end{document}
