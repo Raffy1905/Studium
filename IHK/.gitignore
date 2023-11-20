@@ -6,3 +6,11 @@
 *.out
 *.synctex.gz
 *.toc
+*.glg
+*.glo
+*.gls
+*.glsdefs
+*.ist
+*.lof
+*.lol
+*.lot

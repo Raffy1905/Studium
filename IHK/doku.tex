@@ -1,10 +1,11 @@
-\documentclass[12pt]{article}
+\documentclass[11pt]{article}
 
 \usepackage{ragged2e}
 \justifying
 
 \usepackage{helvet}
 \renewcommand{\familydefault}{\sfdefault}
+\usepackage[onehalfspacing]{setspace}
 
 \usepackage[ngerman]{babel}
 
@@ -13,42 +14,253 @@
 \usepackage{microtype}
 \usepackage{float}
 \usepackage{hyperref}
-\usepackage[margin=1.25in]{geometry}
+\usepackage[margin=2.5cm]{geometry}
 \usepackage{multirow,tabularx}
 \newcolumntype{S}{>{\hsize=.75\hsize\arraybackslash}X}
 \newcolumntype{N}{>{\hsize=1\hsize\arraybackslash}X}
 \newcolumntype{B}{>{\hsize=1.5\hsize\arraybackslash}X}
-\renewcommand{\arraystretch}{1.5}
+\renewcommand{\arraystretch}{1}
 
 \usepackage{verbatimbox}
+
+\usepackage{xcolor}
+\usepackage{graphicx}
+\graphicspath{{./pictures/}}
+\usepackage{pdfpages}
+
+\usepackage{fancyhdr}
+
+\usepackage{sectsty}
+\sectionfont{\color{bx-green}}  % sets colour of sections
+\subsectionfont{\color{bx-green}}
+\renewcommand{\headrule}{{\color{bx-green}\rule[2ex]{\dimexpr\textwidth-3.5cm}{.95pt}}}
+
+\usepackage[utf8]{inputenc}
+\usepackage[toc]{glossaries}
+\usepackage[nottoc]{tocbibind}
 
 \title{Beschte Onboarding}
 \date{\today}
 \author{Julian Thiele}
 
 
+%---------------------------------------------------------------
+%
+%                   Listings
+%
+%---------------------------------------------------------------
+
+
+\usepackage{listings}
+\definecolor{lightgray}{rgb}{.9,.9,.9}
+\definecolor{darkgray}{rgb}{.4,.4,.4}
+\definecolor{purple}{rgb}{0.65, 0.12, 0.82}
+\definecolor{darkgreen}{rgb}{0.02, 0.66, 0.23}
+\definecolor{bx-green}{HTML}{398772}
+\lstdefinelanguage{TypeScript}{
+    keywords={break, case, catch, continue, debugger, default, delete, do, else, false, finally, for, function, if, in, instanceof, new, null, return, switch, this, throw, true, try, typeof, var, void, while, with},
+    morecomment=[l]{//},
+    morecomment=[s]{/*}{*/},
+    morestring=[b]',
+    morestring=[b]",
+    ndkeywords={class, export, boolean, throw, implements, import, this},
+    keywordstyle=\color{blue}\bfseries,
+    ndkeywordstyle=\color{darkgray}\bfseries,
+    identifierstyle=\color{black},
+    commentstyle=\color{purple}\ttfamily,
+    stringstyle=\color{darkgreen}\ttfamily,
+    sensitive=true
+}
+
+\lstset{
+    language=TypeScript,
+    backgroundcolor=\color{lightgray},
+    extendedchars=true,
+    basicstyle=\footnotesize\ttfamily,
+    showstringspaces=false,
+    showspaces=false,
+    numbers=left,
+    numberstyle=\footnotesize,
+    numbersep=9pt,
+    tabsize=2,
+    breaklines=true,
+    showtabs=false,
+    captionpos=b
+}
+    
+    
+%---------------------------------------------------------------
+%
+%                   Glossar
+%
+%---------------------------------------------------------------
+    
+\makeglossaries
+    
+\newglossaryentry{vue}{
+    name=vue,
+    description={Framewok zum Erstellen von Webanwendungen}
+}
+\newglossaryentry{vscode}{
+    name=VisualStudio Code,
+    description={Code-Editor für die Programmierung von
+    verschiedenen Programmiersprachen}
+}
+\newglossaryentry{firebase}{
+    name=Firebase,
+    description={Entwicklungsplattform für mobile und Webentwicklung, die
+        Tools und Infrastruktur zur Verfügung stellt}
+}
+\newglossaryentry{firestore}{
+    name=Firestore,
+    description={NoSQL-Datenbank, die in Firebase integriert ist}
+}
+\newglossaryentry{NoSQL}{
+    name=NoSQL,
+    description={Nicht-relationale Datenbankstruktur ohne festgelegte Tabellenstruktue}
+}
+\newglossaryentry{git}{
+    name=git,
+    description={Software zur Versionsverwaltung von Dateien}
+}
+\newglossaryentry{buddy}{
+    name=BREDEX-Buddy,
+    description={Ansprechpartner für neue Mitarbeiter bei der BREDEX GmbH}
+}
+\newglossaryentry{achmnt}{
+    name=Achievement,
+    description={Aufgaben, die neue Mitarbeiter bei der BREDEX GmbH zusammen mit
+    ihren BREDEX-Buddys erledigen können, um sich ins Unternehmen einzuarbeiten}
+}
+\newglossaryentry{modal}{
+    name=modaldialog,
+    description={Dialogfenster im Vordergrund einer Webanwendung}
+}
+\newglossaryentry{spa}{
+    name=Single-Page Application,
+    description={Eine Webanwendung, die aus einer einzigen HTML-Datei besteht, deren Inhalte dynamisch
+        nachgeladen werden}
+}
+\newglossaryentry{api}{
+    name=API,
+    description={(Application Programming Interface / Programmierschnittstelle) Teil eines Softwaresytems,
+        die dem Programmierer auf Quelltextebene den Anschluss an ein anderes System erlaubt}
+}
+\newglossaryentry{bt}{
+    name=Bootstrap,
+    description={CSS-Framework, das Gestaltungsvorlagen für Benutzeroberflächen bereitstellt}
+}
+\newglossaryentry{uuid}{
+    name=UUID,
+    description={(Universal Unique Identifier) 128-bit Zahl, die zur Identifikation von Informationen
+        in Computersystemen genutzt wird}
+}
+\newglossaryentry{vuei18n}{
+    name=Vue I18n,
+    description={Vue Plugin, um leicht die Anwendung einer Sprache wechseln zu können}
+}
+\newglossaryentry{ref}{
+    name=ref,
+    description={Ein Objekt in Vue, dessen Wert in der Benutzeroberfläche in Echtzeit aktualisiert werden kann}
+}
+\newglossaryentry{baas}{
+    name=Backend-As-A-Service,
+    description={Dienst, der eine Entwicklungsumgebung im Browser zur Verfügung stellt mit Anbindung an eine Cloud,
+        um die Entwicklung von Backends für Webanwendungen zu vereinfachen}
+}
+\newglossaryentry{unittest}{
+    name=Unit-Tests,
+    description={Automatisierte Tests, die Methoden auf korrekte Funktionsweise testen}
+}
+\newglossaryentry{expltest}{
+    name=explorative Tests,
+    description={Die Benutzeroberfläche wird von dem Testenden auf fehlerhafte oder falsche Eingaben überprüft,
+        um Robustheit zu garantieren}
+}
+\newglossaryentry{usertest}{
+    name=User-Test,
+    description={Einen Nutzer werden Aufgaben gestellt, die dieser mit der Anwendung erledigen soll. Mit diesen Tests wird die
+        intuitive Bedienbarkeit der Anwendung getestet}
+}
+\newglossaryentry{gamification}{
+    name=Gamification,
+    description={Übertragung von spieltypischen Elementen und Vorgängen in spielfremde Zusammenhänge}
+}
+\newglossaryentry{view}{
+    name=view,
+    description={Anderer Name für eine Komponente in Vue. Views sind in den meisten Fällen Komponenten, die eine Unterseiten der Webseite darstellen}
+}
+                    
+                    
+                    
+%---------------------------------------------------------------
+%
+%                   BEGIN
+%
+%---------------------------------------------------------------
+                    
+                    
 \begin{document}
 \sloppy
+       
+\begin{titlepage}
+    \vspace*{\fill}
+        \centering
+        {\LARGE \textbf{Abschlussprüfung Winter 2023}\par}
+        \vspace{1cm}
+        {\Large \textbf{Ausbildungsberuf}\par}
+        {\Large Fachinformatiker/Fachinformatikerin (VO 2020) \par Fachrichtung: Anwendungsentwicklung\par}
+        \vspace{1cm}
+        {\Large \textbf{Prüfungsbezirk}\par}
+        {\Large Braunschweig 1201 FIA 4 (AP T2V1)\par}
+        \vspace{1cm}
+        {\Large \textbf{Prüfungsteilnehmer}\par}
+        {\Large Herr Julian Thiele\par}
+        {\Large Identnummer: 734117\par}
+        \vspace{1cm}
+        {\Large \textbf{Ausbildungsbetrieb}\par}
+        {\Large Bredex GmbH\par}
+        {\Large Lindentwete 1\par}
+        {\Large 38100 Braunschweig\par}
+        \vspace{1cm}
+        {\Large \textbf{Projektbetreuer}\par}
+        {\Large Herr Christian Rucinski\par}
+        \vspace{1cm}
+        {\Large \textbf{Thema der Projektarbeit}\par}
+        {\Large Digitalisierung des internen Onboarding Prozesses neuer Mitarbeiter*innen\par}
 
-\maketitle
-\newpage
+    \vspace*{\fill}   
+\end{titlepage}
+
+% \maketitle
+% \thispagestyle{empty}
+% \newpage
 
 \tableofcontents
+\addtocontents{toc}{\protect\thispagestyle{empty}}
+\pagenumbering{gobble}
 \newpage
-
+\pagenumbering{arabic}
+\pagestyle{fancy}
+\fancyhead[L]{Projektdokumentation - Julian Thiele}
+\fancyhead[R]{
+    \vspace*{-.4cm}
+    \includegraphics[height=.7cm]{bx_logo.png}
+}
+                    
 %---------------------------------------------------------------
 %
 %                   INTRODUCTION
 %
 %---------------------------------------------------------------
-
+                    
 \section{Einleitung}
-
+                    
 \subsection{Ausbildungsbetrieb}
 Die BREDEX GmbH wurde im Jahr 1987 in Braunschweig gegründet. Den Schwerpunkt 
 bildet die individuelle Softwareentwicklung, die BREDEX führt jedoch auch 
 Beratungen zu Datenschutz, Datensicherheit, Qualitätssicherung von Software 
-und Schulungen durch. Die BREDEX GmbH besitzt, mit seiner Tochterfirma BREDEX 
+und Schulungen durch. Die BREDEX GmbH besitzt, mit ihrer Tochterfirma BREDEX 
 HUNGARY KFT. zusammen, ca. 200 Mitarbeiter, mit ungefähr 10 Auszubildenden und dualen Studenten.  % Azubis / Dualis?
 
 \subsection{Projektumfeld}
@@ -59,8 +271,8 @@ eingesetzt werden und den sogenannten BREDEX Buddy, einen Ansprechpartner
 neuer Mitarbeiter, bei seiner Arbeit unterstützen. 
 
 Das Frontend wird mit dem Framework Vue, bei welchem die Scriptsprache TypeScript 
-Anwendung findet, geschrieben. Als Backend wird Firebase als “Backend As a Service” 
-genutzt, in welche die NoSQL-Datenbank Firestore integriert ist.
+Anwendung findet, geschrieben. Als Backend wird \gls{firebase} als “Backend As a Service” 
+genutzt, in welche die NoSQL-Datenbank \gls{firestore} integriert ist.
 
 \subsection{Projektabgrenzung}
 Durch die Fachinformatikerausbildungsverordung wird das Projekt zeitlich auf 80 
@@ -69,6 +281,12 @@ Stunden begrenzt.
 Die Anwendung ist ein alleinstehendes Tool und wird daher in kein Projekt 
 eingegliedert. Daher gibt es keine weiteren Beschränkungen, auf die geachtet 
 werden muss.  
+
+\subsection{Projektziel}
+Um neuen Mitarbeitern den Start in das Unternehmen zu vereinfachen, stellt BREDEX GmbH neuen Mitarbeitern
+den sogenannten \gls{buddy} zur Verfügung. Um diesen in Zukunft die Arbeit zu vereinfachen und ihnen die Aufgaben klarzustellen,
+soll es in Zukunft eine Webanwendung geben. Diese soll eine Checkliste zur Verfügung stellen, mit den verschiedenen Aufgaben, die ein
+Buddy erledigen soll, sowie eine Rangliste, um die Einarbeitung mithilfe von \Gls{gamification} interessanter zu gestalten.
 
 \subsection{Abweichungen vom Projektantrag}
 Es gibt keine Abweichungen vom Projektantrag.
@@ -85,23 +303,26 @@ Bei der Projektplanung werden die benötigten Arbeitspakete identifiziert und ge
 Auch benötigte Kosten und Ressourcen werden abgeschätzt.
 
 \subsection{Identifizierung der Arbeitspakete}
-Zu Beginn findet ein Anforderungsgespräch statt, bei dem die Projektziele 
+Zu Beginn fand ein Anforderungsgespräch statt, bei dem die Projektziele 
 definiert werden, damit es keine Differenzen im Verständnis dieser gibt. Außerden ist hierdurch
 definiert, welche Anforderungen erfüllt werden müssen. 
 
-Im Anschluss kommt die Analysephase, bei der der Soll-Zustand niedergeschrieben wird.  
+Im Anschluss folgte die Analysephase. In dieser Phase wird der IST-Zustand analysiert und 
+der Soll-Zustand niedergeschrieben, welcher sich aus den, im Anforderungsgespräch ergebenen, Anforderungen ergibt.
+Dabei werden die Anforderungen verfeinert.
 
-Das dritte Paket bildet die Designphase, hierbei werden Benutzeroberfläche und 
-Datenmodell geplant.  
+Auf den Verfeinerungen der Analysephase baut im Folgenden die Designphase auf.
+Hierbei werden Benutzeroberfläche mithilfe von Mockups geplant, um alle Andorderungen  
+ein Datenmodell erstellt. Dadurch können benötigte Ressourcen abgeschätzt werden.
 
-Daraufhin folg die Entwicklung der Anwendung, bei der die Ergebnisse aus den 
+Daraufhin folgt die Entwicklung der Anwendung, bei der die Ergebnisse aus den 
 vorherigen Arbeitspaketen umgesetzt werden. Um mögliche Fehler während der 
 Implementierung frühzeitig zu erkennen und beheben zu können, finden Tests statt. 
 
 Im letzten Arbeitsschritt wird die Dokumentation des Projektes erstellt. 
 
 \subsection{Zeitplan}
-Das Projekt wird im Zeitraum vom 22.09.2023 bis zum 22.11.2023 bearbeitet. 
+Das Projekt wurde im Zeitraum vom 22.09.2023 bis zum 22.11.2023 bearbeitet. 
 Die im vorherigen Abschnitt erwähnten Arbeitspakete wurden in folgenden Zeitplan 
 (\autoref{table:timeplan}) eingeteilt. 
 
@@ -131,12 +352,13 @@ Die im vorherigen Abschnitt erwähnten Arbeitspakete wurden in folgenden Zeitpla
 Um die Kosten so gering wie möglich zu halten, wurde nach Möglichkeit nur
 kostenlose oder bereits vorhandene Software, sowie Hardware genutzt.
 Als Arbeitsgerät wurde von der BREDEX GmbH ein Laptop mit Windows 10 und der
-Entwicklungsumgebung VisualStudio Code bereitgestellt.
-Des Weiteren wurde Firebase mit Firestore als Datenbank und Git als 
-Versionsverwaltung eingesetzt.
+Entwicklungsumgebung \gls{vscode} bereitgestellt.
+Des Weiteren wurde \gls{firebase} mit \gls{firestore} als Datenbank und \Gls{git} als 
+Versionsverwaltung eingesetzt.\newline
+Eine Liste mit allen genutzten Ressourcen zeigt  im Anhang. 
 
 \subsection{Kostenplanung}
-Für den Prüfungsteilnehmer wird ein Stundenlohn von 9 EUR angesetzt.
+Für den Prüfungsteilnehmer wird ein Stundenlohn von 9 EUR angesetzt. % Mischkalkulation ?
 Ihm stehen für die Bearbeitung 80 Stunden zur Verfügung.
 Der Projektbetreuer führt das Anforderungsgespräch durch und steht 
 dazu noch für weitere Fragen während der Bearbeitung zur Verfügung.
@@ -145,7 +367,378 @@ Stundenlohn von 45 EUR
 Da nur bereits vorhandene oder kostenlose Ressourcen genutzt werden,
 ergeben sich keine weiteren Lizenz- oder Nutzungskosten.
 
-Als Gesamtkosten berechnen sich hiermit 990 EUR (\autoref{table:costs}).
+Als Gesamtkosten berechnen sich hiermit 990 EUR, wie im Kostenplan (\autoref{table:costs}) festgehlaten.
+
+
+
+
+\subsection{Nutzwertanalyse}
+
+Der Sinn der Anwendung liegt darin, den Prozess der Einarbeitung zu erleichtern. Unter diesem Gesichtspunkt wird der alte Prozess
+mit dem neuen Prozess, der die Anwendung nutzt, verglichen.
+
+Am wichtigsten ist hierbei die Benutzerfreundlichkeit (Usability). Im alten Prozess mussten alle Aufgaben per Hand aus einer Word-Datei in eine eigene
+Liste kopiert werden und bei Erfüllung manuell durch Emojis abgehakt oder aus der eigenen Liste gelöscht werden. 
+Außerdem mussten alle Aufgaben für nicht-deutschsprachige Mitarbeiter vom Buddy selbst übersetzt werden.\newline
+In der Anwendung sind die Aufgaben über die \glspl{achmnt} direkt in einer Liste gesammelt und können durch einen einfachen Klick abgehakt werden.
+Die Sprache kann über einen Button in der Anwendung einfach umgestellt werden.
+
+Der nächste Punkt ist die Einheitlichkeit. Derzeit gibt es unterschiedliche Listen mit verschiedenen Aufgaben. Je nach dem, welche Liste der
+Buddy nutzt, werden unterschiedliche Aufgaben erledigt. \newline
+Mit der Anwendung gibt es eine gesammelte Liste an \glspl{achmnt}, die von den Buddys genutzt wird. Zusätzlich kann diese Liste jederzeit von 
+zuständigen Personen angepasst werden, sollte es Änderungen für die Einarbeitung geben.
+
+Die Motivation diese Aufgaben zu erledigen steigt mit der Anwendung deutlich an. Der Vorgang, die Aufgaben zu suchen, und alles manuell kopieren
+zu müssen ist umständlich, was die Motivation senkt, sich darum zu kümmern. Mit der Anwendung müssen die Aufgaben nicht mehr gesucht werden, sondern
+sind einfach in der Applikation einsehbar. Außerdem erhält die Einarbeitung durch die Rangliste eine \Gls{gamification}. Dadurch wird die Motivation gesteigert, 
+da man sich mit seinen Mitarbeiter messen kann und ein kleiner Wettbewerb entsteht.
+
+Zuletzt wird noch die Sicherheit betrachtet. Die alten Dateien an Aufgaben lagen in zentralem Cloudspeicher und konnten von allem Mitarbeiter bearbeitet werden 
+oder neu erstellt werden. Mit der neuen Anwendung können nur noch zuständige Personen auf die Liste direkt zugreifen und diese bearbeiten.  
+
+
+
+%---------------------------------------------------------------
+%
+%                   Analysephase
+%
+%---------------------------------------------------------------
+
+\section{Analysephase}
+In der Analysephase werden die Anforderungen definiert, sowie der IST-Zustand analysiert und das
+SOLL-Konzept entwickelt. Mit den Erkenntnissen aus dieser Phase kann im Anschluss die Architektur 
+der Anwendung erstellt werden.
+
+\subsection{Anforderungsgespräch}
+Als Erstes wurde ein Anforderungsgespräch mit dem Kunden durchgeführt.
+In dem Gespräch wird der IST-Zustand ermittelt und das SOLL-Konzept definiert.
+Außerdem wurden die vom Kunden gewünschten Features der Amwendung übermittelt.
+Die wichtigsten Features der Anwendung sind:
+
+\begin{itemize} 
+    \item \glspl{achmnt}, die abgehakt werden können
+    \item Rangliste, um sich mit Kollegen vergleichen zu können
+    \item Als Administrator Achievementliste bearbeiten können 
+    \item Mehrsprachigkeit in Deutsch und Englisch
+\end{itemize}
+
+Die Punkte wurden in dem Gespräch noch weiter konkretisiert, um die Anwendung
+im Anschluss möglichst nach den Wünschen des Kunden implementieren zu können.
+
+
+\subsection{IST-Zustand Analyse}
+
+Damit neue Mitarbeiter der BREDEX GmbH besser in das Unternehmen
+finden, werden ihnen ein Ansprechpartner, den sogenannten BREDEX-Buddy
+an die Seite gestellt. Dieser soll dem*der Mitarbeiter*in das Unternehmen
+näherbringen. Allerdings ist nicht genau klar, was die Aufgaben des Buddys
+alles beinhalten. Es gibt unterschiedlichen Orten, an denen man Listen mit
+verschiedenen Inhalten findet. 
+Dadurch führen die Buddys ihre Aufgabe unterschiedlich aus. Daraus resultiert, 
+dass Mitarbeiter unterschiedlich eingearbeitet werden und es besteht die
+Möglichkeit, dass Punkte vergessen oder vernachlässigt werden. Dadurch erfahren neue Mitarbeiter beispielsweise nicht
+von Angeboten, die die BREDEX GmbH zur Verfügung stellt, bekommen Ereignisse nicht mit oder lernen ihre Kollegen nicht kennen,
+weshalt sie sich schwerer in das Unternehmen einfinden, wodurch auch die Produktivität leiden kann. \newline % Problem? -d
+Zudem ist der Prozess sehr umständlich. Die Aufgaben müssen aus der Datei in eine Eigene kopiert werden,
+um sie abhaken zu können. Das Abhaken der erledigten Aufgaben erfolgt händisch über Löschen der Einträge, 
+Einfügen eines Haken-Emojis oder Ähnlichem. 
+
+
+\subsection{SOLL-Konzept}
+
+Um in Zukunft dafür zu sorgen, dass alle Buddys ihre Aufgaben auf die gleiche Art
+und Weise zu erledigen und des Prozess im Allgemeinen zu vereinfachen, soll eine Webanwendung programmiert werden. 
+In der Anwendung soll es eine Checkliste an \glspl{achmnt} geben, die neue Mitarbeiter im Verlauf ihrer Einarbeitung
+mit ihren Buddys zusammen abarbeiten können. Diese Achievements sollen verschiedene Aufgaben beinhalten, wie beispielsweise bestimmte
+Personen aus dem Unternehmen kennen zu lernen oder sich über Angebote oder Abläufe zu informieren. Manche Achievements beinhalten zudem
+Referenzen zu Insidern aus der Unternehmenskultur, wodurch man diese besser kennen lernt.
+
+Zudem soll es eine Rangliste geben, in der sich Kollegen, die zur selben Zeit angefangen haben, gegenseitig
+sehen können. Diese \Gls{gamification} erhöht die Motivation, \glspl{achmnt} zu erledigen. Dadurch lernen neue Mitarbeiter
+das Unternehmen schneller kennen und finden sich so schneller zurecht und lernen ihre Kollegen schneller kennen. 
+
+Um die \glspl{achmnt} aktualisieren zu können, soll es noch eine Seite geben, bei der ausgewählte
+Personen neue \glspl{achmnt} anlegen, bearbeiten oder auch löschen können. Dadurch können die Achievements besser aktuell gehalten werden und bei
+Änderungen im Unternehmen oder anderem Bedarf angepasse werden.
+Nicht authorisierte Personen sollen diese Seite weder sehen, noch darauf zugreifen können.
+
+
+%---------------------------------------------------------------
+%
+%                   Design
+%
+%---------------------------------------------------------------
+
+\section{Designphase}
+In der Designphase werden Benutzeroberfläche und Datenmodelle der Anwendung geplant. Dadurch können benötigte Ressourcen
+genauer abgeschätzt sowie Schwierigkeiten oder Fehler im vorhinein erkannt werdem. 
+
+\subsection{Benutzeroberfläche}
+
+% Corporate Design - BX style guide
+% standard Login-Seite
+
+Bei dem Design der Benutzeroberfläche (im folgenden GUI genannt) wird
+besonders darauf geachtet, dass alle Daten möglichst übersichtlich
+dargestellt werden. Dazu werden für jede der großen Anforderungen
+jeweils einzelne Unterseiten (im folgenden View genannt) unterteilt. 
+
+Hierbei gibt es eine View, um alle \glspl{achmnt} einehen zu können
+und diese abhaken zu können. \glspl{achmnt} werden zu verschiedenen
+Zeitpunkten freigeschaltet. Manche sind direkt verfügbar, manche 
+nach einer Woche, einem Monat oder erst nach einem halben Jahr. 
+Entsprechend dieser Zeitstempel sind die \glspl{achmnt} in Akkordeons
+gruppiert. Dies führt dazu, dass \glspl{achmnt} übersichtlich einsehbar
+sind.
+
+Eine weitere View gibt es für die Ansicht der Rangliste. Hier wird
+der derzeit eingeloggten Person eine Rangliste mit den Personen, die
+zu einer ähnlichen Zeit angefangen haben, angezeigt. Jeder wird mit Platzierung,
+Punktzahl, Name, sowie der Email-Adresse angezeigt (\autoref{abb:ranking}).
+
+Eine letzte View ist dazu da, \glspl{achmnt} verwalten zu können.
+Die View ist ähnlich aufgebaut, wie die \glspl{achmnt}-View. Neben den Akkordeon-Headern befindet sich
+zusätzlich jeweils ein weiterer Button, um neue \glspl{achmnt} für diesen Zeitpunkt
+hinzufügen zu können. Anstatt \glspl{achmnt} abzuhaken zu können, findet der Nutzer hier
+einen Button, um \glspl{achmnt} zu bearbeiten oder zu löschen. (\autoref{abb:achievements_manage}).
+
+Beim Hinzufügen oder Bearbeiten eines \glspl{achmnt} öffnet sich ein
+\Gls{modal}. Ín diesem Dialogfenster kann der deutsche und englische Text, sowie der
+Zeitpunkt für die Freischaltung des Achievements und die Punktzahl eingestellt werden (\autoref{abb:modal}). 
+Bei BEstätigung des Dialoges werden die Daten in die Datenbak übertragen und dort gespeichert.
+Fehlende Eingaben werden dem Nutzer über eine Eingabeaufforderung am jeweiligen Eingabefeld gekennzeichnet.
+
+Um ein einheitliches Design mit anderen internen Applikationen der BREDEX GmbH herzustellen, wurde der Stil der Software
+am BREDEX-Styleguide orientiert. Hier sind grundsätzliche Designentscheidungen für BREDEX-Software, wie zB Farben oder Schrift normiert.
+Auch die Login-Seite ist dem standardisierten Design der BREDEX GmbH angepasst.
+
+\subsection{Datenbank}
+
+Bei der Datenbank handelt es sich um die \gls{NoSQL} Datenbank \gls{firebase}
+von \gls{firestore}. Die Daten werden im JSON-Format gespeichert. Hierbei wird
+von Sammlungen und Attributen gesprochen. Sammlungen sind mehrer JSON-Objekte, mit einer
+ID und einem Datensatz. Dieser Datensatz kann weitere Sammlungen beinhalten,
+sowie Attribute wie beispielsweise Zahlen, Zeichenketten oder Arrays.
+
+Um die \glspl{achmnt} und die Daten der Nutzer der Anwendung speichern zu können
+wurden in der Datenbank jeweils Sammlungen angelegt. Die Referenzen der Nutzer zu ihren
+erledigten Achievements werden in einer Liste an IDs gespeichert, anstatt eine Benutzereigene Sammlung für Achievements
+anzulegen. Dies entspricht eher einem relationalen Ansatz, der eher unüblich für NoSQL Datenbanken ist.
+Die Entscheidung wurde getroffen, um die Redundanz von Daten zu verringern und das Pflegen von Achievements
+einfacher Umsetzen zu können. 
+% hiervor könntest du noch dediziert schreiben wofür eine Sammlung steht. Das wird hier nicht klar -- jetzt klar?
+
+
+%---------------------------------------------------------------
+%
+%                   Implementierung
+%
+%---------------------------------------------------------------
+
+\section{Implementierungsphase}
+In der Implementierungsphase wird die Anwendung programmiert. Hierbei werden die,
+in der Planungs- und Designphase erstellten, Strukturen und Modellen genutzt, um die Software möglichst ohne
+Komplikationen umsetzen zu können.
+
+\subsection{Frontend}
+
+% installation
+
+Im Frontend wird das Webframework Vue eingesetzt. Dieses baut auf den
+standard Websprachen HTML, JavaScript und CSS auf. 
+Vue nutzt komponentenbasierte Programmierung, indem es HTML um die Möglichkeit
+erweitert, Templates zu erzeugen. Diese Templates werden dann entsprechend dem zugrunde 
+liegenden Java-Scripts die GUI erzeugen. % Erklärung besser ?
+In dieser Anwendung wird Vue-Routing genutzt um eine \gls{spa} zu
+erstellen. Die Webseite besteht bei einer \gls{spa} nur aus einer HTML Datei. Diese Datei
+wird von Vue im Buildprozess der Anwendung erstellt. Der Inhalt des HTML kann dynamisch mit den
+verschidenen Komponenten ausgetauscht werden.
+
+Standardmäßig wird in Vue die Scriptsprache JavaScript genutzt. Das Framework
+kann auch mit der Sprache TypeScript genutzt werden, wofür sich in diesem
+Projekt entschieden wurde, um die Vorteile von Typisierung nutzen zu können.
+Dadurch können gewisse Fehler bereits zur Kompilierzeit vom Compiler entdeckt werden und
+die Anwendung gegenüber Fehlern robsuter gemacht werden.
+
+Vue stellt seit Version 3.0 auch eine neue \gls{api} zur Verfügung: die Composition API.
+Die Vorteile gegenüber der, in Vue Standardmäßig genutzten, Options API, ist die Möglichkeit,
+den Code variabler und besser strukturieren zu können. Dies verbessert die Lesbarkeit und Qualität des
+Codes. Außerdem erleichtert die Composition API die Wiederverwendbarkeit
+von Code in verschiedenen Komponenten, was eine große Auswirkung auf Codequalität und
+Fehlerrobustheit hat.
+
+Für Styling wird das CSS-Framework \gls{bt} genutzt, um einfacher ein modernes
+Design für die Anwendung erstellen zu können und sich auf die Programmierung des
+Projektes konzentrieren zu können.\newline
+
+% Zu detailliert / Überflüssig?
+% View organisiert die Website über mehrere Single-Page-Komponenten. Hierbei handelt
+% es sich um eine Dateistruktur, bei der jede Datei seine eigene Komponente beinhält.
+% Die Wurzelkomponente einer jeden Vue-Amwemdung stellt die App-Component dar. In dieser
+% wird der <vue-router> Tag genutzt. Dadurch lässt sich ein Teil des Inhaltes der App-Komponente
+% dynamisch mit anderen Komponenten austauschen. % Header mit v-if
+
+Als erstes wurde die Achievement-\Gls{view} erstellt, da es sich bei diesem Feature um die
+Hauptanforderung der Website handelt. Hier werden alle \glspl{achmnt} angezeigt, die
+der Benutzer erledigen kann. 
+\Glspl{achmnt}, die noch zu erledigen sind, werden hierbei hervorgehoben, um leichter den
+Überblick behalten zu können (\autoref{abb:achievements}).
+Am oberen Rand der Website gibt es eine kurze Einführung in die Website und eine Fortschrittsleiste
+zeigt an, wie viel der Nutzer bereits geschafft hat.
+Jede Vue-Komponente hat
+hat ihren eigenen Lifecycle. Hierzu gehören beispielsweise das Erstellen, Mounten,
+Aktualisieren oder Unmounten der Komponente. Der OnMounted-Lifecycle Hook wird hier genutzt,
+um kurz vor dem Anzeigen der Komponente, die Daten aus der Datenbank zu laden.
+Diese Vorgehensweise wird in anderen Komponenten ebenfalls genutzt, um Daten zu laden. 
+
+Als nächstes wird die Login-View erstellt. Da in der BREDEX GmbH Microsoft Accounts
+genutzt werden, kann sich der Nutzer hier mit diesem Anmelden. Außerdem werden neue Nutzer
+erkannt, indem \glspl{uuid} verglichen werden und für jeweilige Nutzer neue Einträge in der
+Datenbank erstellt.
+
+Im Anschluss wurde die Rangliste erstellt. Hier werden Mitarbeiter, die bis zu einem Monat vor oder
+nach einem angefangen haben tabellenartig mit Name, Punktzahl dargestellt. % unnötig? -d
+
+Die letzte View ist zum Verwalten der \glspl{achmnt}. Auf diese View sollen nur Personen
+aus bestimmten Gruppen, wie beispielsweise der Personalabteilung, Zugriff erhalten. Dieser Zugriff
+kann mit dem Vue-Router implementiert werden, welcher eine Möglichkeit hat, eine Bedingung
+an die Weiterleitung an eine Addresse zu binden. In dieser Bedingung wird die Rolle des
+Nutzers abgefragt. Da diese bei der Anmeldung über \gls{firebase} nicht mit dem Access-Token
+übergeben wird, muss sich separat mit dem Azure Portal verbunden werden, um diese abzufragen.
+
+Um zuletzt die Mehrsprachigkeit umzusetzen, wird das Vue Plugin \gls{vuei18n} genutzt.
+In einer separaten Datei wird zu jedem Text der Anwendung im JSON-Format ein Key gespeichert, zusammen mit
+die jeweiligen Übersetzungen. In dem HTML-Template wird nun anstelle des Textes der Key eingetragen,
+welcher beim Erstellen der Komponente, je nach aktuell eingestellter Sprache, durch die Übersetzung
+ersetzt wird.
+
+Um die Anwendung bei Änderungen von Werten automatisch zu aktualisieren, gibt es in Vue ein Attribut, das eine
+Variable erhalten kann: das \Gls{ref}. Vue rendert das DOM, bevor es auf dem Bildschirm dargestellt wird.
+Dadurch werden im Nachhinein veränderte Werte nicht mehr dargesetellt. \Glspl{ref} haben hierbei einen Sonderstatus.
+Sobald sich die Variable mit dem Attribut ändert, wird die Komponente mit dem neuen Wert neu berechnet.
+
+
+
+\subsection{Backend}
+
+Für das Backend wird das \gls{baas} \gls{firebase} genutzt. Darin sind verschiedene Optionen zur Benutzeranmeldung, 
+wovon nur die Anmeldung über Micorsoft genutzt wird, sowie die NoSQL Datenbank \gls{firestore} enthalten. 
+Als erstes muss das Backend mit der Software verbunden werden. Dafür muss als erstes die Firebase SDK mit dem Befehl
+
+\texttt{npm install firebase}\newline über Node.js installiert werden und im Anschluss in den
+Abhängigkeiten der Vue-Anwendung hinzugefügt werden.
+Nun muss nur noch die Vue-App mit den Firebase Einstellungen configuriert werden.
+
+Als nächstes wird die Datenbank erstellt. Die \gls{NoSQL} Datenbank basiert auf JSON-ähnlichen
+Dateistrukturen. Man kann Sammlungen mit verschiedenen Elementen erstellen. Diese Elemente haben jeweils eine ID, welche
+als Zeichenkette gespeichert wird. Für Nutzer und \glspl{achmnt} werden jeweils eine Sammlung angelegt. 
+
+Die \glspl{achmnt} müssen für beide Sprachen ihren Text enthalten, welcher jeweils als Zeichenkette gespeichert wird.
+Des weiteren muss der Zeitpunkt gespeichert werden, in dem das \gls{achmnt} freigeschaltet wird. Da diese an vier verschiedenen
+möglichen Zeitpunkten freigeschaltet werden können, wurde die Entscheidung getroffen, für das Attribut ein Wert von 0 bis 3 zu speichern.
+Dadurch können die \glspl{achmnt} leicht gruppiert und mit einem Zähler iteriert werden.
+Die Punkte, die jedes \gls{achmnt} hat, werden in einer Ganzzahl von 0 bis 5 gespeichert.
+
+Für die ID des Nutzers wird dessen Micorsoft-\gls{uuid} genutzt. So kann nach der Anmeldung leicht wieder auf die
+Daten eines bestimmten Nutzers zugegriffen werden. Abgesehen von der ID wird für den Nutzer der Zeitpunkt gespeichert, an der sich der Nutzer das erste mal
+angemeldet hat. Dadurch kann beim Abruf der Nutzer für die Rangliste bereits in der Datenbank gefiltert werden.
+Weiterhin werden noch Stammdaten wie Name oder Email-Addresse gespeichert.
+Zuletzt wird für jeden Nutzer noch eine Liste an Zeichenketten gepeichert. Diese Liste beinhält alle IDs der \glspl{achmnt}, die der
+Nutzer bereits erledigt hat. Über diese IDs kann effizient die Liste an erledigten \glspl{achmnt} geholt werden, um Punkte oder
+die prozentuelle Anzahl erledigter \glspl{achmnt} zu berechnen.
+
+
+%---------------------------------------------------------------
+%
+%                   Testphase
+%
+%---------------------------------------------------------------
+
+\section{Testphase}
+
+Um die korrekte Arbeitsweise der Anwendung zu garantieren, werden während der Entwicklung regelmäßig Tests durchgeführt.
+
+Mithilfe von \gls{unittest} wurde während der Entwicklungsphase sichergestellt, dass Methoden korrekt funktionieren.
+\gls{unittest} werden während der Implementierung der Software automatisiert ausgeführt, um Fehler schnell erkennen und beheben 
+zu können.
+
+In regelmäßigen Abständen führte der Prüfungsteilnehmer \gls{expltest} durch. Hierbei wird die GUI mit fehlerhafte oder falsche
+Eingaben auf Robustheit getestet. Damit wird sichergestellt, dass bei falscher Bedienung der Software keine ungewollten
+Fehler auftreten, die den Nutzer von seiner Arbeit abhalten. 
+
+Da bei der Software die Usability im Vordergrund steht, wurden zusätzlich \glspl{usertest} durchgeführt. Bei diesem Testverfahren werden Nutzern, die
+die Software noch nicht kennen, Aufgaben gestellt. Diese Aufgaben sollen erledigt werden und Gedankengänge erläutert werden. Dadurch wird überprüft, 
+ob die GUI intuitiv bedienbar ist und sich Aufgaben ohne Komplikationen erledigen lassen. Falls sich Differenzen zwischen dem Design und den Erwartungen des Nutzers
+feststellen lassen, kann das Design im Anschluss angepasst und verbessert werden.
+
+Bei den Testverfahren wurden außerdem die Dienste eines Test-Consultants in Anspruch genommen, um die Anwendung noch einmal
+ohne Einfluss der Projektleitung oder des Programmierers die Software zu testen. Hierbei wurden noch ein paar kleinere Bugs gefunden.
+Diese wurden im Anschluss vom Prüfungsteilnehmer bearbeitet und korrigiert.
+
+Außerdem gab es Code Reviews von erfahreneren Entwicklern, um Codequalität sicherzustellen, oder effizientere Wege gezeigt zu bekommen,
+um diese im Anschluss anwenden zu können.
+
+
+%---------------------------------------------------------------
+%
+%                   Fazit
+%
+%---------------------------------------------------------------
+
+\section{Abnahme}
+Zum Abschluss des Projektes fand ein Abnahmegespräch mit der Projektbetreuung statt. Bei diesem
+Gespräch wurde in einem Abnahmetest überprüft, ob alle Projektziele erreicht wurden.
+Das Ergebnis des Tests war sehr gut.
+Es ist geplant die Software in naher Zukunft bei BREDEX im produktiven 
+Betrieb zu nutzen.
+
+
+
+%---------------------------------------------------------------
+%
+%                   Fazit
+%
+%---------------------------------------------------------------
+
+\section{Fazit}
+
+
+\subsection{Soll/Ist-Vergleich}
+
+Während der Durchführung der Projektarbeit kam es zu kleinen Differenzen zu der initialen Zeitplanung.
+
+Da ein paar Anforderungen während der Implementierungsphase hinzu kamen, musste in die Designphase zurückgewechselt werden, da
+das Design erst überarbeitet werden musste, um den neuen Anforderungen zu berücksichtigen. Dieser Aufwand kostete den Prüfungsteilnehmer in etwa eine Stunde. 
+
+In der Implementierungsphase kam es durch zusätzlich erforderliche Einarbeitung in die Webentwicklung und das Vue Framework zu einigen Verzögerungen.
+Diese Verzögerungen konnten jedoch durch gut gewählte Bibliotheken und Frameworks wieder aufgeholt werden.
+Insgesamt konnte sogar eine Stunde zusätzlich gewonnen werden, da in der Designphase gut genug gearbeitet wurde,
+um scheller Implementieren zu können als ursprünglich geplant. 
+
+Die restlichen Phasen wurden gut eingeschätzt, wodurch keine weiteren Abweichungen in der Zeitplanung während der 
+Projektdurchführung auftraten.\newline
+Ein graphischen Vergleich der Änderungen der Zeitplanung bietet \autoref{table:timediff}.
+
+Da sich im Projektverlauf keine Anfangs ungeplanten Ressourcen benötigt wurden, gibt es keine Differenzen in der Kosten- oder
+Ressourcenplanung.
+
+
+\subsection{Lessons learned}
+
+Während des Projektes lernte der Prüfungsteilnehmer sehr viel über Webentwicklung und das Erstellen und Umsetzen von Projekten.
+Vor allem die Wichtigkeit und Auswirkung einer guten Design und Analysephase in einem Projekt haben sich gezeigt.
+Aber auch die Wahl von Technologie und genutzten Bibliotheken können einen großen Einfluss auf den flüssigen und schnellen
+Ablauf der Softwareentwicklung haben.
+
+\clearpage
+\printglossaries
+
+\clearpage
+\listoftables
+\listoffigures
+\addcontentsline{toc}{section}{Listings}
+\lstlistoflistings
+\newpage
 
 \begin{table}[H]
     \centering
@@ -164,31 +757,6 @@ Als Gesamtkosten berechnen sich hiermit 990 EUR (\autoref{table:costs}).
     \caption{Kostenplan}
     \label{table:costs}
 \end{table}
-
-
-\subsection{Nutzwertanalyse}
-
-Der Sinn der Anwendung liegt darin, den Prozess der Einarbeitung zu erleichtern. Unter diesem Gesichtspunkt wird der alte Prozess
-mit dem neuen Prozess, der die Anwendung nutzt, verglichen.
-
-Am wichtigsten ist hierbei die Benutzerfreundlichkeit (Usability). Im alten Prozess mussten alle Aufgaben per Hand aus einer Word-Datei in eine eigene
-Liste kopiert werden und bei Erfüllung manuell durch Emojis abgehakt oder aus der eigenen Liste gelöscht werden. 
-Außerdem mussten alle Aufgaben für nicht-deutschsprachige Mitarbeiter*innen vom Buddy selbst übersetzt werden.\newline
-In der Anwendung sind die Aufgaben über die Achievements direkt in einer Liste gesammelt und können durch einen einfachen Klick abgehakt werden.
-Die Sprache kann über einen Button in der Anwendung einfach umgestellt werden.
-
-Der nächste Punkt ist die Einheitlichkeit. Derzeit gibt es unterschiedliche Listen mit verschiedenen Aufgaben. Je nach dem, welche Liste der
-Buddy nutzt, werden unterschiedliche Aufgaben erledigt. \newline
-Mit der Anwendung gibt es eine gesammelte Liste an Achievements, die von den Buddys genutzt wird. Zusätzlich kann diese Liste jederzeit von 
-zuständigen Personen angepasst werden, sollte es Änderungen für die Einarbeitung geben.
-
-Die Motivation diese Aufgaben zu erledigen steigt mit der Anwendung deutlich an. Der Vorgang, die Aufgaben zu suchen, und alles manuell kopieren
-zu müssen ist umständlich, was die Motivation senkt, sich darum zu kümmern. Mit der Anwendung müssen die Aufgaben nicht mehr gesucht werden, sondern
-sind einfach in der Applikation einsehbar. Außerdem erhält die Einarbeitung durch die Rangliste eine Gamification. Dadurch wird die Motivation gesteigert, 
-da man sich mit seinen Mitarbeiter*innen messen kann und ein kleiner Wettbewerb entsteht.
-
-Zuletzt wird noch die Sicherheit betrachtet. Die alten Dateien an Aufgaben lagen in zentralem Cloudspeicher und konnten von allem Mitarbeiter*innen bearbeitet werden 
-oder neu erstellt werden. Mit der neuen Anwendung können nur noch zuständige Personen auf die Liste direkt zugreifen und diese bearbeiten.  
 
 \begin{table}[H]
     \addvbuffer[0pt 4pt]{\begin{tabularx}{\textwidth}{|B|N|S|N|S|N|}
@@ -213,286 +781,6 @@ oder neu erstellt werden. Mit der neuen Anwendung können nur noch zuständige P
     \label{table:weightedsum}
 \end{table}
 
-
-
-%---------------------------------------------------------------
-%
-%                   Analysephase
-%
-%---------------------------------------------------------------
-
-\section{Analysephase}
-In der Analysephase werden die Anforderungen definiert, sowie der IST-Zustand analysiert und das
-SOLL-Konzept entsickelt. Damit kann im Anschluss die Architektur der Anwendung erstellt werden.
-
-\subsection{Anforderungsgespräch}
-Als Erstes wurde ein Anfürderungsgespräch mit dem Kunden durchgeführt.
-In dem Gespräch wird der IST-Zustand ermittelt und das SOLL-Konzept definiert.
-Außerdem wurden die vom Kunden gewünschten Features der Amwendung übermittelt.
-Die wichtigsten Features der Anwendung sind:
-
-\begin{itemize} 
-    \item Achievements, die abgehakt werden können
-    \item Rangliste, um sich mit Mitarbeiter*innen vergleichen zu können
-    \item Als Administrator Achievementliste bearbeiten können 
-    \item Mehrsprachigkeit in Deutsch und Englisch
-\end{itemize}
-
-Die Punkte wurden in dem Gespräch noch weiter konkretisiert, um die Anwendung
-im Anschluss möglichst nach den Wünschen des Kunden implementieren zu können.
-
-
-\subsection{IST-Zustand Analyse}
-
-Damit neue Mitarbeiter*innen der BREDEX GmbH besser in das Unternehmen
-finden, werden ihnen ein Ansprechpartner, den sogenannten BREDEX-Buddy
-an die Seite gestellt. Dieser soll dem*der Mitarbeiter*in das Unternehmen
-näherbringen. Allerdings ist nicht genau klar, was die Aufgaben des Buddys
-alles beinhalten. Es gibt unterschiedlichen Orten, an denen man Listen mit
-verschiedenen Inhalten findet. 
-Dadurch führen die Buddys ihre Aufgabe unterschiedlich aus. Daraus resultiert, 
-dass Mitarbeiter*innen unterschiedlich eingearbeitet werden und es besteht die
-Möglichkeit, dass Punkte vergessen oder vernachlässigt werden. \newline % Problem? -d
-Zudem ist der Prozess sehr umständlich. Die Aufgaben müssen aus der Datei in eine Eigene kopiert werden,
-um sie abhaken zu können. Das Abhaken der erfolgt händisch über Löschen der Einträge, Einfügen eines Emojis
-oder Ähnlichem. 
-
-
-\subsection{SOLL-Konzept}
-
-Um in Zukunft dafür zu sorgen, dass alle Buddys ihre Aufgaben auf die gleiche Art
-und Weise zu erledigen und des Prozess im Allgemeinen zu vereinfachen, soll eine Webanwendung programmiert werden. 
-In der Anwendung soll es eine Checkliste an Achievements geben, die neue Mitarbeiter*innen im Verlauf ihrer Einarbeitung
-mit ihren Buddys zusammen abarbeiten können.
-
-Zudem soll es eine Rangliste geben, in der sich Mitarbeiter*innen, die zur selben Zeit angefangen haben, gegenseitig
-sehen können. Diese Gamification soll die Motivation erhöhen, die Achievements zu erledigen, wodurch die neuen
-Mitarbeiter*innen sich mehr in das Unternehmen eingliedern.
-
-Um die Achievements aktualisieren zu können, soll es noch eine Seite geben, bei der ausgewählte
-Personen neue Achievements anlegen, bearbeiten oder auch löschen können. Andere Personen sollen
-diese Seite weder sehen, noch darauf zugreifen können.
-
-
-%---------------------------------------------------------------
-%
-%                   Design
-%
-%---------------------------------------------------------------
-
-\section{Designphase}
-In der Designphase werden Benutzeroberfläche und Datenmodelle der Anwendung geplant, um im
-vorhinein Schwierigkeiten oder Fehler erkennen zu können. 
-
-\subsection{Benutzeroberfläche}
-
-Bei dem Design der Benutzeroberfläche (im folgenden GUI genannt) wird
-besonders darauf geachtet, dass alle Daten möglichst übersichtlich
-dargestellt werden. Dazu werden für jede der großen Anforderungen
-jeweils einzelne Unterseiten (im folgenden View genannt) unterteilt. 
-
-Hierbei gibt es eine View, um alle Achievements einehen zu können
-und diese abhaken zu können. Achievements werden zu verschiedenen
-Zeitpunkten freigeschaltet. Manche sind direkt verfügbar, manche 
-nach einer Woche, einem Monat oder erst nach einem halben Jahr. 
-Entsprechend dieser Zeitstmpel sind die Achievements in Akkordeons
-gruppiert. Dies führt dazu, dass Achievements übersichtlich einsehbar
-sind.
-
-Eine weitere View gibt es für die Ansicht der Rangliste. Hier wird
-der derzeit eingeloggten Person eine Rangliste mit den Personen die
-zu einer ähnlichen Zeit angefangen habe angezeigt, mit Name, Email 
-und Punktzahl.
-
-Eine letzte View gibt es, um die Achievements verwalten zu können.
-Die View ist ähnlich aufgebaut, wie die Achievements-View. Die Achievements
-werden in Akkordeons gruppiert, jedoch befindet sich neben jedem Titel
-der Akkordeons ein weiterer Button, um neue Achievements für den Zeitpunkt
-hinzufügen zu können. Außerdem ist der Button um Achievements abzuhaken
-asugetauscht durch jeweils einen Button um das Achievement löschen oder 
-bearbeiten zu können.
-
-Beim Hinzufügen oder Bearbeiten eines Achievements öffnet sich ein
-Modaldialog, bei dem sich die Daten bearbeiten lassen und dann der
-Vorgang abgeschlossen werden kann. Hierbei werden fehlende Eingaben durch
-eine rote Umrandung des Eingabefeldes vermittelt.
-
-
-\subsection{Datenbank}
-
-Bei der Datenbank handelt es sich um die NoSQL Datenbank Firestore
-von Firebase. Die Daten werden im JSON-Format gespeichert. Hierbei wird
-von Sammlungen und Attributen gesprochen. Sammlungen sind mehrer JSON-Objekte, mit einer
-ID und einem Datensatz. Diese Datensötze können aus weiteren Sammlungen
-oder Attributen wie Zahlen, Arrays oder ähnlichem bestehen.
-
-Um die Achievements und die Daten der Nutzer der Anwendung speichern zu können
-wurden in der Datenbank jeweils Sammlungen angelegt.
-% hiervor könntest du noch dediziert schreiben wofür eine Sammlung steht. Das wird hier nicht klar -- jetzt klar?
-
-
-%---------------------------------------------------------------
-%
-%                   Implementierung
-%
-%---------------------------------------------------------------
-
-\section{Implementierungsphase}
-In der Implementierungsphase wird die Anwendung programmiert. Hierbei wird sich an den,
-in der Planung erstellten, Strukturen und Modellen bedient, um die Software möglichst ohne
-Komplikationen umsetzen zu können.
-
-\subsection{Frontend}
-
-% installation
-
-Im Frontend wird das Webframework Vue eingesetzt. Dieses baut auf den
-Standard Websprachen HTML, JavaScript und CSS auf. 
-Vue nutzt komponentenbasierte Programmierung, indem es HTML um die Möglichkeit
-erweitert, Templates zu erzeugen. Diese Templates werden dann entsprechend dem zugrunde 
-liegenden Java-Scripts die GUI erzeugen. % Erklärung besser ?
-In dieser Anwendung wird Vue-Routing genutzt um eine Single-Page Anwendung zu
-erstellen. 
-
-Standardmäßig wird in Vue die Scriptsprache JavaScript genutzt. Das Framework
-kann auch mit der Sprache TypeScript genutzt werden, wofür sich in diesem
-Projekt entschieden wurde, um die Vorteile von Typisierung nutzen zu können.
-Dadurch können gewisse Fehler bereits zur Kompilierzeit vom Compiler entdeckt werden,
-wodurch die Anwendung weniger Fehleranfällig wird.
-
-
-Vue stellt seit Version 3.0 auch eine neue API zur Verfügung: die Composition API.
-Die Vorteile gegenüber der, in Vue Standardmäßig genutzten, Options API, ist die Möglichkeit
-den Code variabler und besser zu strukturieren. Dies verbessert die lesbarkeit und Qualitäts des
-Codes. Außerdem erleichtert die Composition API die Wiederverwendbarkeit
-von Code in verschiedenen Komponenten, was eine große Auswirkung auf Codequalität und
-Fehleranfällig hat.
-
-Für Styling wird das CSS-Framework Bootstrap genutzt, um einfacher ein modernes
-Design für die Anwendung erstellen zu können und sich auf die Programmierung des
-Projektes konzentrieren zu können.
-
-% Zu detailliert / Überflüssig?
-% View organisiert die Website über mehrere Single-Page-Komponenten. Hierbei handelt
-% es sich um eine Dateistruktur, bei der jede Datei seine eigene Komponente beinhält.
-% Die Wurzelkomponente einer jeden Vue-Amwemdung stellt die App-Component dar. In dieser
-% wird der <vue-router> Tag genutzt. Dadurch lässt sich ein Teil des Inhaltes der App-Komponente
-% dynamisch mit anderen Komponenten austauschen. % Header mit v-if
-
-Als erstes wurde die Achievement-View erstellt, da es sich bei der View um die
-Hauptanforderung der Website handelt. Hier werden alle Achievements angezeigt, die
-der Benutzer erledigen kann und ob diese bereits erledigt wurden.
-Im oberen Teil der Website gibt es eine kurze Einführung und eine Fortschrittsleiste
-zeigt an, wie viel der Nutzer bereits geschafft hat.
-Jede Vue-Komponente hat
-hat seinen eigenen Lifecycle. Hierzu gehören beispielsweise das Erstellen, Mounten,
-Aktualisieren oder Unmounten der Komponente. Der OnMounted-Lifecycle Hook wird hier genutzt,
-um kurz vor dem Anzeigen der Komponente, die Daten aus der Datenbank zu laden.
-Diese Vorgehensweise wird in anderen Komponenten ebenfalls genutzt, um Daten zu laden. 
-
-Als nächstes wird die Login-View erstellt. Da in der BREDEX GmbH Microsoft Accounts
-genutzt werden, kann sich der Nutzer hier mit diesem Anmelden. Außerdem werden neue Nutzer
-erkannt, indem UUIDs verglichen werden und für jeweilige Nutzer neue Einträge in der
-Datenbank erstellt.
-
-Im Anschluss wurde die Rangliste erstellt. Hier werden Mitarbeiter*innen, die bis zu einem Monat vor oder
-nach einem angefangen haben Tabellenartig mit Name, Punktzahl dargestellt. % unnötig? -d
-
-Die letzte View ist zum Verwalten der Achievements. Auf diese View sollen nur Personen
-mit bestimmten Gruppen Zugriff haben, wie beispielsweise die Personalabteilung. Dieser Zugriff
-kann mit dem Vue-Router implementiert werden, welcher eine Möglichkeit hat, eine Bedingung
-an die Weiterleitung an die Addresse zu binden. In dieser Bedingung wird die Rolle des
-Nutzers abgefragt. Da diese bei der Anmeldung über Firebase nicht mit dem Access-Token
-übergeben wird, muss sich separat mit dem Azure Portal verbunden werden, um diese abzufragen.
-
-Um zuletzt die Mehrsprachigkeit umzusetzen, wird sich das Vue Plugin Vue I18N zunutze gemacht.
-In einer separaten Datei wird zu jedem Text der Anwendung im JSON-Format ein Key gespeichert und
-die jeweiligen Übersetzungen. In dem HTML-Template wird nun anstelle des Textes der Key eingetragen,
-welcher beim Erstellen der Komponente, je nach aktuell eingestellter Sprache, durch die Übersetzung
-ersetzt wird.
-
-Um die Anwendung bei Änderungen von Werten automatisch zu aktualisieren, gibt es in Vue ein Attribut, das eine
-Variable erhalten kann: das \textit{Ref}. Vue rendert das DOM, bevor es auf dem Bildschirm dargestellt wird.
-Dadurch werden im Nachhinein veränderte Werte nicht mehr dargesetellt. Refs haben hierbei einen Sonderstatus.
-Sobald sich die Variable mit dem Attribut ändert, wird die Komponente mit dem neuen Wert neu berechnet.
-
-%ref ?
-
-
-\subsection{Backend}
-
-Für das Backend wird das Backend-As-A-Service Firebase genutzt. Darin sind verschiedene Optionen zur Benutzeranmeldung, 
-wovon nur die Anmeldung über Micorsoft genutzt wird, sowie die NoSQL Datenbank Firestore. 
-Als erstes muss das Backend mit der Software verbunden werden. Dafür muss als erstes die Firebase SDK mit dem Befehl
-
-\texttt{npm install firebase}\newline über Node.js installiert werden und im Anschluss in den
-Abhängigkeiten der Vue-Anwendung hinzugefügt werden.
-Nun muss nur noch die Vue-App mit den Firebase Einstellungen configuriert werden.
-
-Als nächstes wird die Datenbank erstellt. Die NoSQL Datenbank basiert auf JSON-ähnlichen
-Dateistrukturen. Man kann Sammlungen erstellen, mit verschiedenen Elementen. Diese Elements haben jeweils eine ID, welche
-in einer Zeichenkette gespeichert wird. Es wird eine Sammlung erstellt für die Nutzer
-und eine Sammlung für die Achievements. 
-
-Die Achievements müssen für beidem Sprachen ihren Text enthalten. Diese werden jeweils in einer Zeichenkette gespeichert.
-Des weiteren muss der Zeitpunkt gespeichert werden, in dem das Achievement freigeschaltet werden. Da diese an vier verschiedenen
-möglichen Zeitpunkten freigeschaltet werden können, wurde sich dazu entschieden, das Attribut in einem Wert von 0 bis 3 zu speichern.
-Dadurch können die Achievements leicht gruppiert und mit einem Zähler iteriert werden.
-Die Punkte, die jedes Achievement hat, werden in einer Ganzzahl gespeichert.
-
-Für die ID des Nutzers, wird beim Anlegen diesen, die Micorsoft UUID genutzt. So kann nach der Anmeldung leicht wieder auf die
-Daten zugegriffen werden. Abgesehen von der ID wird für den Nutzer der Zeitpunkt gespeichert, an der sich der Nutzer das erste mal
-angemeldet hat. Dadurch kann beim Abruf der Nutzer für die Rangliste bereits in der Datenbank gefiltert werden.
-Weiterhin werden noch Stammdaten wie Name oder Email-Addresse gespeichert.
-Zuletzt wird für jeden Nutzer noch eine Liste an Zeichenketten gepeichert. Diese Liste beinhält alle IDs der Achievements, die der
-Nutzer bereits erledigt hat. Über diese IDs kann sich effizient die Liste an erledigten Achievements geholt werden, um Punkte oder
-die prozentuelle Anzahl erlediger Achievements zu berechnen.
-
-
-%---------------------------------------------------------------
-%
-%                   Testphase
-%
-%---------------------------------------------------------------
-
-\section{Testphase}
-
-Um die korrekte Arbeitsweise der Anwendung zu garantieren, werden während der Entwicklung regelmäßig Tests durchgeführt.
-Mithilfe von Unit-Tests wurde während der Entwicklungsphase sichergestellt, dass Methoden korrekt funktionieren. Durch exploratives
-Testen wurde außerdem sichergestellt, dass die Anwendung bei Eingaben das erwartete Verhalten erfüllt und keine ungültigen
-Eingaben getätigt werden können.
-
-Da bei der Software die Usability im Vordergrund steht, wurden zusätzlich Usertests durchgeführt.
-Außerdem gab es Code Reviews von erfahreneren Entwicklern, um Codequalität sicherzustellen, oder effizientere Wege gezeigt zu bekommen,
-um diese im Anschluss anwenden zu können.
-
-
-%---------------------------------------------------------------
-%
-%                   Fazit
-%
-%---------------------------------------------------------------
-
-\section{Fazit}
-
-%\subsection{Abnahme}
-
-%idk
-
-\subsection{Soll/Ist-Vergleich}
-
-Während der Durchführung der Porjektarbeit kam es zu kleinen Differenzen zu der initialen Zeitplanung.
-
-Da ein paar Anforderungen während der Implementierungsphasehinzu kamen, musste in die Designphase zurückgewechselt werden, da
-das Design erst überarbeitet werden musste, um den neuen Anforderungen
-gerecht zu werden. Dieser Aufwand kostete den Prüfungsteilnehmer in etwa eine Stunde. Auch in der Implementierungsphase
-kam es durch wenige Kenntnisse in der Webentwicklung und über das Vue Framework zu einigen Verzögerungen.
-Die dadurch entstandenen Verzögerungen konnten jedoch durch gut gewählte Bibliotheken wieder aufgeholt werden und
-zudem die verlorene Zeit aus der Designphase ausgeglichen werden. 
-
-In den restlichen Phasen kam es zu keinen weiteren Abweichungen.\newline
-Ein graphischen Vergleich der Änderungen der Zeitplanung bietet \autoref{table:timediff}.
-
 \begin{table}[H]
     \centering
     \begin{tabular}{|l|l|l|l|}
@@ -507,7 +795,6 @@ Ein graphischen Vergleich der Änderungen der Zeitplanung bietet \autoref{table:
         Umsetzung & 40 & 39 & -1 \\
         Test und Abnahme & 7 & 7 &  0 \\
         Dokumentation & 12 & 12 &  0 \\
-        &&& \\
         \hline
         \textbf{Gesamt} & \textbf{80} & \textbf{80} & \textbf{+-0} \\
         \hline
@@ -516,13 +803,109 @@ Ein graphischen Vergleich der Änderungen der Zeitplanung bietet \autoref{table:
     \label{table:timediff}
 \end{table}
 
+\clearpage
+%-------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------------
 
-\subsection{Lessons learned}
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{application/ranking_table.png}
+    \caption{Ranking}
+    \label{abb:ranking}
+\end{figure}
 
-Während des Projektes lernte der Prüfungsteilnehmer sehr viel über Webentwicklung und das Erstellen und Umsetzen von Projekten.
-Vor allem die Wichtigkeit und Auswirkung einer guten Design und Analysephase in einem Projekt haben sich gezeigt.
-Aber auch die Wahl von Technologie und genutzten Bibliotheken können einen großen Einfluss auf den flüssigen und schnellen
-Ablauf der Softwareentwicklung haben.
+\begin{figure}
+    \centering
+    \includegraphics{application/achievement_manage.png}
+    \caption{Achievements - Manage-View}
+    \label{abb:achievements_manage}
+\end{figure}
 
+\begin{figure}
+    \centering
+    \includegraphics{application/popup_manage.png}
+    \caption{Modaldialog - Add/Edit}
+    \label{abb:modal}
+\end{figure}
+
+\begin{figure} % --> split in subsections
+    \centering
+    \includegraphics[width=\textwidth]{application/achievement_done_undone.png}
+    \caption{Achievements}
+    \label{abb:achievements}
+\end{figure}
+
+\clearpage
+%----------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------
+
+\begin{lstlisting}[language=TypeScript, caption=Lade Daten Beispiel]
+fetchData() {
+    firebase.firestore().collection("/achievements")
+        .onSnapshot(snapshot => {
+            this.achievements = []
+            snapshot.forEach(doc => {
+                this.achievements.push({
+                    id: doc.id,
+                    name_de: doc.data().name_de,
+                    name_en: doc.data().name_en,
+                    timestamp: doc.data().unlock_time,
+                    points: doc.data().points
+                })
+            })
+        })
+}
+\end{lstlisting}
+
+\begin{lstlisting}[language=TypeScript, caption=OnMounted-Lifecyclehook Beispiel]
+OnMounted(async () => {
+    doneTasks.value = UserService.getDoneAchievements();
+})
+\end{lstlisting}
+
+\begin{lstlisting}[language=Typescript, caption=Achievement Datenmodell]
+{
+    id: string,
+    data: {
+        name_de: string,
+        name_en: string,
+        points: int,
+        unlock_time: int,
+    }
+}    
+\end{lstlisting}
+
+\clearpage
+
+% use of ref
+% router access management
+
+\appendix
+
+\section{genutzte Ressourcen}
+\textbf{Personal}
+\begin{itemize}
+    \item Projektbetreuer
+    \item Prüfungsteilnehmer
+\end{itemize}
+\textbf{Software}
+\begin{itemize}
+    \item Windows 10 Professional
+    \item VisualStudio Code
+    \item Git
+    \item GitLab
+    \item GitHub
+\end{itemize}
+\textbf{Hardware}
+\begin{itemize}
+    \item ThinkPad
+    \item 2 Monitore
+    \item Tastatur
+    \item Maus
+\end{itemize}
+
+\includepdf[pages=-]{./pictures/Projektantrag.pdf}
+
+% Bestätigung
 
 \end{document}
