@@ -31,6 +31,7 @@
 
 \usepackage{fancyhdr}
 \renewcommand{\headrule}{{\color{bx-green}\rule[2ex]{\dimexpr\textwidth-3.55cm}{.95pt}}}
+\setlength{\headheight}{30pt}
 
 \usepackage{sectsty}
 \sectionfont{\color{bx-green}}  % sets colour of sections
@@ -99,7 +100,7 @@
     
 \newglossaryentry{vue}{
     name=vue,
-    description={Framewok zum Erstellen von Webanwendungen}
+    description={HTML-Framewok zum Erstellen von Webanwendungen}
 }
 \newglossaryentry{vscode}{
     name=VisualStudio Code,
@@ -206,7 +207,7 @@
 \begin{titlepage}
     \vspace*{\fill}
         \centering
-        {\LARGE \textbf{Abschlussprüfung Winter 2023}\par}
+        {\Huge \textbf{Abschlussprüfung Winter 2023}\par}
         \vspace{1cm}
         {\Large \textbf{Ausbildungsberuf}\par}
         {\Large Fachinformatiker/Fachinformatikerin (VO 2020) \par Fachrichtung: Anwendungsentwicklung\par}
@@ -258,19 +259,19 @@
                     
 \subsection{Ausbildungsbetrieb}
 Die BREDEX GmbH wurde im Jahr 1987 in Braunschweig gegründet. Den Schwerpunkt 
-bildet die individuelle Softwareentwicklung, die BREDEX führt jedoch auch 
+bildet die individuelle Softwareentwicklung, BREDEX führt jedoch auch 
 Beratungen zu Datenschutz, Datensicherheit, Qualitätssicherung von Software 
 und Schulungen durch. Die BREDEX GmbH besitzt, mit ihrer Tochterfirma BREDEX 
-HUNGARY KFT. zusammen, ca. 200 Mitarbeiter, mit ungefähr 10 Auszubildenden und dualen Studenten.  % Azubis / Dualis?
+HUNGARY KFT. zusammen, ca. 200 Mitarbeiter. Davon sind ungefähr 12 Mitarbeiter Auszubildenden und dualen Studenten.  % Azubis / Dualis?
 
 \subsection{Projektumfeld}
 Das Projekt wird unter der Aufsicht von Herr Christian Rucinski in den 
 Geschäftsräumen der BREDEX GmbH entwickelt. Bei der Anwendung handelt es sich 
 um ein BREDEX internes Tool. Sie soll für den Onboardingprozess neuer Mitarbeiter 
-eingesetzt werden und den sogenannten BREDEX Buddy, einen Ansprechpartner 
+eingesetzt werden und den sogenannten \Gls{buddy}, einen Ansprechpartner 
 neuer Mitarbeiter, bei seiner Arbeit unterstützen. 
 
-Das Frontend wird mit dem Framework Vue, bei welchem die Scriptsprache TypeScript 
+Das Frontend wird mit dem Framework \Gls{vue}, bei welchem die Scriptsprache TypeScript 
 Anwendung findet, geschrieben. Als Backend wird \gls{firebase} als “Backend As a Service” 
 genutzt, in welche die NoSQL-Datenbank \gls{firestore} integriert ist.
 
@@ -285,11 +286,15 @@ werden muss.
 \subsection{Projektziel}
 Um neuen Mitarbeitern den Start in das Unternehmen zu vereinfachen, stellt BREDEX GmbH neuen Mitarbeitern
 den sogenannten \gls{buddy} zur Verfügung. Um diesen in Zukunft die Arbeit zu vereinfachen und ihnen die Aufgaben klarzustellen,
-soll es in Zukunft eine Webanwendung geben. Diese soll eine Checkliste zur Verfügung stellen, mit den verschiedenen Aufgaben, die ein
-Buddy erledigen soll, sowie eine Rangliste, um die Einarbeitung mithilfe von \Gls{gamification} interessanter zu gestalten.
+soll es in Zukunft eine Webanwendung geben. Diese soll eine Checkliste mit den verschiedenen Aufgaben zur Verfügung stellen, die ein
+\Gls{buddy} erledigen soll, sowie eine Rangliste, um die Einarbeitung mithilfe von \Gls{gamification} interessanter zu gestalten.
 
 \subsection{Abweichungen vom Projektantrag}
 Es gibt keine Abweichungen vom Projektantrag.
+
+\subsection{weitere Anmerkungen}
+In der Dokumentation wird die männliche Form von Mitarbeitern, Kollegen, Kunden, etc genutzt.
+Gemeint wird jedoch m/w/d.
 
 
 %---------------------------------------------------------------
@@ -300,31 +305,34 @@ Es gibt keine Abweichungen vom Projektantrag.
 
 \section{Projektplanung}
 Bei der Projektplanung werden die benötigten Arbeitspakete identifiziert und geplant.
-Auch benötigte Kosten und Ressourcen werden abgeschätzt.
+Zudem werden Kosten und Ressourcen zunächst abgeschätzt.
 
 \subsection{Identifizierung der Arbeitspakete}
-Zu Beginn fand ein Anforderungsgespräch statt, bei dem die Projektziele 
-definiert werden, damit es keine Differenzen im Verständnis dieser gibt. Außerden ist hierdurch
-definiert, welche Anforderungen erfüllt werden müssen. 
+Zu Beginn fand ein Anforderungsgespräch statt. Hierbei wurden die Projektziele 
+definiert, damit es keine Differenzen im Verständnis dieser gibt. Außerden wurde definiert, welche Anforderungen erfüllt werden müssen. 
 
-Im Anschluss folgte die Analysephase. In dieser Phase wird der IST-Zustand analysiert und 
-der Soll-Zustand niedergeschrieben, welcher sich aus den, im Anforderungsgespräch ergebenen, Anforderungen ergibt.
-Dabei werden die Anforderungen verfeinert.
+Im Anschluss folgte die Analysephase. In dieser Phase wurde der IST-Zustand analysiert und 
+der Soll-Zustand niedergeschrieben, welcher sich aus den vorab definierten Anforderungen ergab.
+Dabei wurden die Anforderungen verfeinert.
 
-Auf den Verfeinerungen der Analysephase baut im Folgenden die Designphase auf.
-Hierbei werden Benutzeroberfläche mithilfe von Mockups geplant, um alle Andorderungen  
-ein Datenmodell erstellt. Dadurch können benötigte Ressourcen abgeschätzt werden.
+Auf den Verfeinerungen der Analysephase baute die folgende Designphase auf.
+Hierbei wurde die Benutzeroberfläche geplant und
+ein Datenmodell erstellt. Dadurch konnten benötigte Ressourcen genauer abgeschätzt werden.
 
-Daraufhin folgt die Entwicklung der Anwendung, bei der die Ergebnisse aus den 
-vorherigen Arbeitspaketen umgesetzt werden. Um mögliche Fehler während der 
-Implementierung frühzeitig zu erkennen und beheben zu können, finden Tests statt. 
+Daraufhin folgte die Entwicklung der Anwendung, bei der die Ergebnisse der 
+vorherigen Arbeitspaketen umgesetzt wurden. Um mögliche Fehler während der 
+Implementierung frühzeitig erkennen und beheben zu können, fanden Tests statt. 
 
-Im letzten Arbeitsschritt wird die Dokumentation des Projektes erstellt. 
+Am Ende der Entwicklungsphase wurde ein Abnahmegespräch mit dem Projektbetreuer durchgeführt. 
+In diesem Gespräch wurde die Anwendung mit den Anforderungen verglichen und entschieden, ob diese
+erfüllt wurden.
+
+Im letzten Arbeitsschritt wurde die Dokumentation des Projektes erstellt. 
 
 \subsection{Zeitplan}
-Das Projekt wurde im Zeitraum vom 22.09.2023 bis zum 22.11.2023 bearbeitet. 
-Die im vorherigen Abschnitt erwähnten Arbeitspakete wurden in folgenden Zeitplan 
-(\autoref{table:timeplan}) eingeteilt. 
+Das vorliegende Projekt wurde im Zeitraum vom 22.09.2023 bis zum 22.11.2023 bearbeitet. 
+Für die unter 2.1 genannten Arbeitspakete wurde folgend der Zeitplan 
+(\autoref{table:timeplan}) erstellt. 
 
 \begin{table}[H]
     \centering
@@ -351,50 +359,50 @@ Die im vorherigen Abschnitt erwähnten Arbeitspakete wurden in folgenden Zeitpla
 \subsection{Ressourcenplanung}
 Um die Kosten so gering wie möglich zu halten, wurde nach Möglichkeit nur
 kostenlose oder bereits vorhandene Software, sowie Hardware genutzt.
-Als Arbeitsgerät wurde von der BREDEX GmbH ein Laptop mit Windows 10 und der
+Als Arbeitsgerät wurde durch die BREDEX GmbH ein Laptop mit Windows 10 und der
 Entwicklungsumgebung \gls{vscode} bereitgestellt.
-Des Weiteren wurde \gls{firebase} mit \gls{firestore} als Datenbank und \Gls{git} als 
+Des Weiteren wurde \gls{firebase} als \gls*{baas} mit \gls{firestore} als Datenbank verwendet. \Gls{git} wird als 
 Versionsverwaltung eingesetzt.\newline
-Eine Liste mit allen genutzten Ressourcen zeigt  im Anhang. 
+Eine Liste mit allen genutzten Ressourcen befindet sich im Anhang. 
 
 \subsection{Kostenplanung}
-Für den Prüfungsteilnehmer wird ein Stundenlohn von 9 EUR angesetzt. % Mischkalkulation ?
-Ihm stehen für die Bearbeitung 80 Stunden zur Verfügung.
-Der Projektbetreuer führt das Anforderungsgespräch durch und steht 
+Für den Prüfungsteilnehmer wurde ein Stundenlohn von 9 EUR angesetzt. % Mischkalkulation ?
+Ihm standen für die Bearbeitung 80 Stunden zur Verfügung.
+Der Projektbetreuer führte das Anforderungsgespräch durch und stand 
 dazu noch für weitere Fragen während der Bearbeitung zur Verfügung.
-Daher werden für ihn 6 Stunden angesetzt, bei einem geschätzten 
-Stundenlohn von 45 EUR
-Da nur bereits vorhandene oder kostenlose Ressourcen genutzt werden,
-ergeben sich keine weiteren Lizenz- oder Nutzungskosten.
+Daher wurden für ihn 6 Stunden angesetzt, bei einem geschätzten 
+Stundenlohn von 45 EUR.
+Da ansonsten nur vorhandene oder kostenlose Ressourcen genutzt wurden,
+ergaben sich keine weiteren Lizenz- oder Nutzungskosten.
 
-Als Gesamtkosten berechnen sich hiermit 990 EUR, wie im Kostenplan (\autoref{table:costs}) festgehlaten.
+Als Gesamtkosten ergaben sich hiermit 990 EUR, wie im Kostenplan (s. \autoref{table:costs}) festgehlaten.
 
 
 
 
 \subsection{Nutzwertanalyse}
 
-Der Sinn der Anwendung liegt darin, den Prozess der Einarbeitung zu erleichtern. Unter diesem Gesichtspunkt wird der alte Prozess
-mit dem neuen Prozess, der die Anwendung nutzt, verglichen.
+Das Ziel der Anwendung liegt darin, den Prozess der Einarbeitung neuer Mitarbeiter zu erleichtern. Unter diesem Gesichtspunkt wird im Folgenden der alte Prozess
+mit dem neuen Prozess, der die hier entwickelte Anwendung nutzt, verglichen. Die Nutzwerte wurden ermittelt und im Anhang in \autoref{table:weightedsum} festgehalten.
 
-Am wichtigsten ist hierbei die Benutzerfreundlichkeit (Usability). Im alten Prozess mussten alle Aufgaben per Hand aus einer Word-Datei in eine eigene
+Am Wichtigsten ist der Aspekt der Benutzerfreundlichkeit (Usability). Im alten Prozess mussten alle Aufgaben per Hand aus einer Word-Datei in eine eigene
 Liste kopiert werden und bei Erfüllung manuell durch Emojis abgehakt oder aus der eigenen Liste gelöscht werden. 
-Außerdem mussten alle Aufgaben für nicht-deutschsprachige Mitarbeiter vom Buddy selbst übersetzt werden.\newline
-In der Anwendung sind die Aufgaben über die \glspl{achmnt} direkt in einer Liste gesammelt und können durch einen einfachen Klick abgehakt werden.
+Außerdem mussten alle Aufgaben für nicht-deutschsprachige Mitarbeiter vom \Gls{buddy} selbst übersetzt werden.\newline
+In der Anwendung werden die Aufgaben über die \glspl{achmnt} direkt in einer Liste gesammelt und können durch einen einfachen Klick abgehakt werden.
 Die Sprache kann über einen Button in der Anwendung einfach umgestellt werden.
 
-Der nächste Punkt ist die Einheitlichkeit. Derzeit gibt es unterschiedliche Listen mit verschiedenen Aufgaben. Je nach dem, welche Liste der
-Buddy nutzt, werden unterschiedliche Aufgaben erledigt. \newline
-Mit der Anwendung gibt es eine gesammelte Liste an \glspl{achmnt}, die von den Buddys genutzt wird. Zusätzlich kann diese Liste jederzeit von 
-zuständigen Personen angepasst werden, sollte es Änderungen für die Einarbeitung geben.
+Ein weiterer Wert der Anwendung liegt in der Vereinheitlichung des Prozesses. Derzeit gibt es unterschiedliche Listen mit verschiedenen Aufgaben. Je nachdem, welche Liste der
+\Gls{buddy} nutzt, werden unterschiedliche Aufgaben erledigt. \newline
+Mit der Anwendung gibt es eine einheitliche Liste an \glspl{achmnt}, die von den \Glspl{buddy} genutzt wird. Diese Liste kann jederzeit von 
+zuständigen Personen angepasst werden, sollte es Änderungen im Einarbeitungsprozess geben.
 
-Die Motivation diese Aufgaben zu erledigen steigt mit der Anwendung deutlich an. Der Vorgang, die Aufgaben zu suchen, und alles manuell kopieren
+Die Motivation die Aufgaben zu erledigen steigt vorraussichtlich mit der Anwendung deutlich an. Der Vorgang, die Aufgaben zu suchen, und alles manuell kopieren
 zu müssen ist umständlich, was die Motivation senkt, sich darum zu kümmern. Mit der Anwendung müssen die Aufgaben nicht mehr gesucht werden, sondern
-sind einfach in der Applikation einsehbar. Außerdem erhält die Einarbeitung durch die Rangliste eine \Gls{gamification}. Dadurch wird die Motivation gesteigert, 
-da man sich mit seinen Mitarbeiter messen kann und ein kleiner Wettbewerb entsteht.
+sind einfach in der Applikation einsehbar. Außerdem erhält die Einarbeitung durch die Rangliste eine \Gls{gamification}. Dadurch kann die Motivation weiterhin gesteigert werden, 
+da man sich mit seinen Kollegen messen kann und ein kleiner Wettbewerb entsteht.
 
-Zuletzt wird noch die Sicherheit betrachtet. Die alten Dateien an Aufgaben lagen in zentralem Cloudspeicher und konnten von allem Mitarbeiter bearbeitet werden 
-oder neu erstellt werden. Mit der neuen Anwendung können nur noch zuständige Personen auf die Liste direkt zugreifen und diese bearbeiten.  
+Schließlich wird der Aspekt der Sicherheit betrachtet. Die alten Dateien an Aufgaben lagen in einem zentralen Cloudspeicher und konnten von allen Mitarbeitern bearbeitet
+oder neu erstellt werden. Mit der neuen Anwendung können nur noch zuständige Personen auf die Liste zugreifen, um diese zu bearbeiten.  
 
 
 
@@ -406,7 +414,7 @@ oder neu erstellt werden. Mit der neuen Anwendung können nur noch zuständige P
 
 \section{Analysephase}
 In der Analysephase werden die Anforderungen definiert, sowie der IST-Zustand analysiert und das
-SOLL-Konzept entwickelt. Mit den Erkenntnissen aus dieser Phase kann im Anschluss die Architektur 
+SOLL-Konzept entwickelt. Mit den Erkenntnissen aus dieser Phase kann im Anschluss die Struktur
 der Anwendung erstellt werden.
 
 \subsection{Anforderungsgespräch}
@@ -429,27 +437,27 @@ im Anschluss möglichst nach den Wünschen des Kunden implementieren zu können.
 \subsection{IST-Zustand Analyse}
 
 Damit neue Mitarbeiter der BREDEX GmbH besser in das Unternehmen
-finden, werden ihnen ein Ansprechpartner, den sogenannten BREDEX-Buddy
-an die Seite gestellt. Dieser soll dem*der Mitarbeiter*in das Unternehmen
-näherbringen. Allerdings ist nicht genau klar, was die Aufgaben des Buddys
-alles beinhalten. Es gibt unterschiedlichen Orten, an denen man Listen mit
+finden, wird ihnen ein Ansprechpartner, der sogenannte \gls{buddy},
+an die Seite gestellt. Dieser soll dem Mitarbeiter das Unternehmen
+näherbringen. Allerdings ist nicht genau klar, was die Aufgaben des \Glspl{buddy}
+beinhalten. Es gibt unterschiedliche Orte, an denen man Listen mit
 verschiedenen Inhalten findet. 
-Dadurch führen die Buddys ihre Aufgabe unterschiedlich aus. Daraus resultiert, 
+Dadurch führen die \Glspl{buddy} ihre Aufgabe unterschiedlich aus. Daraus resultiert, 
 dass Mitarbeiter unterschiedlich eingearbeitet werden und es besteht die
 Möglichkeit, dass Punkte vergessen oder vernachlässigt werden. Dadurch erfahren neue Mitarbeiter beispielsweise nicht
 von Angeboten, die die BREDEX GmbH zur Verfügung stellt, bekommen Ereignisse nicht mit oder lernen ihre Kollegen nicht kennen,
-weshalt sie sich schwerer in das Unternehmen einfinden, wodurch auch die Produktivität leiden kann. \newline % Problem? -d
-Zudem ist der Prozess sehr umständlich. Die Aufgaben müssen aus der Datei in eine Eigene kopiert werden,
+weshalb sie sich schwerer in das Unternehmen einfinden, wodurch auch die Produktivität leiden kann. \newline % Problem? -d
+Zudem ist der Prozess sehr umständlich. Die Aufgaben müssen aus der Datei in eine eigene kopiert werden,
 um sie abhaken zu können. Das Abhaken der erledigten Aufgaben erfolgt händisch über Löschen der Einträge, 
 Einfügen eines Haken-Emojis oder Ähnlichem. 
 
 
 \subsection{SOLL-Konzept}
 
-Um in Zukunft dafür zu sorgen, dass alle Buddys ihre Aufgaben auf die gleiche Art
-und Weise zu erledigen und des Prozess im Allgemeinen zu vereinfachen, soll eine Webanwendung programmiert werden. 
+Um in Zukunft dafür zu sorgen, dass alle \Glspl{buddy} ihre Aufgaben auf die gleiche Art
+und Weise erledigen und den Prozess im Allgemeinen zu vereinfachen, soll eine Webanwendung programmiert werden. 
 In der Anwendung soll es eine Checkliste an \glspl{achmnt} geben, die neue Mitarbeiter im Verlauf ihrer Einarbeitung
-mit ihren Buddys zusammen abarbeiten können. Diese Achievements sollen verschiedene Aufgaben beinhalten, wie beispielsweise bestimmte
+mit ihren \Glspl{buddy} zusammen abarbeiten können. Diese Achievements sollen verschiedene Aufgaben beinhalten, wie beispielsweise bestimmte
 Personen aus dem Unternehmen kennen zu lernen oder sich über Angebote oder Abläufe zu informieren. Manche Achievements beinhalten zudem
 Referenzen zu Insidern aus der Unternehmenskultur, wodurch man diese besser kennen lernt.
 
@@ -459,8 +467,8 @@ das Unternehmen schneller kennen und finden sich so schneller zurecht und lernen
 
 Um die \glspl{achmnt} aktualisieren zu können, soll es noch eine Seite geben, bei der ausgewählte
 Personen neue \glspl{achmnt} anlegen, bearbeiten oder auch löschen können. Dadurch können die Achievements besser aktuell gehalten werden und bei
-Änderungen im Unternehmen oder anderem Bedarf angepasse werden.
-Nicht authorisierte Personen sollen diese Seite weder sehen, noch darauf zugreifen können.
+Änderungen im Unternehmen oder anderem Bedarf angepasst werden. Hierbei müssen beide Sprachen von den Nutzern gepflegt werden.
+Nicht autorisierte Personen sollen diese Seite weder sehen, noch darauf zugreifen können.
 
 
 %---------------------------------------------------------------
@@ -471,7 +479,7 @@ Nicht authorisierte Personen sollen diese Seite weder sehen, noch darauf zugreif
 
 \section{Designphase}
 In der Designphase werden Benutzeroberfläche und Datenmodelle der Anwendung geplant. Dadurch können benötigte Ressourcen
-genauer abgeschätzt sowie Schwierigkeiten oder Fehler im vorhinein erkannt werdem. 
+genauer abgeschätzt sowie Schwierigkeiten oder Fehler im Vorraus erkannt werden. 
 
 \subsection{Benutzeroberfläche}
 
@@ -481,49 +489,49 @@ genauer abgeschätzt sowie Schwierigkeiten oder Fehler im vorhinein erkannt werd
 Bei dem Design der Benutzeroberfläche (im folgenden GUI genannt) wird
 besonders darauf geachtet, dass alle Daten möglichst übersichtlich
 dargestellt werden. Dazu werden für jede der großen Anforderungen
-jeweils einzelne Unterseiten (im folgenden View genannt) unterteilt. 
+jeweils einzelne Unterseiten (im folgenden \Gls{view} genannt) unterteilt. 
 
-Hierbei gibt es eine View, um alle \glspl{achmnt} einehen zu können
-und diese abhaken zu können. \glspl{achmnt} werden zu verschiedenen
+Hierbei gibt es eine \Gls{view}, um alle \glspl{achmnt} einsehen
+und abhaken zu können. \Glspl{achmnt} werden zu verschiedenen
 Zeitpunkten freigeschaltet. Manche sind direkt verfügbar, manche 
 nach einer Woche, einem Monat oder erst nach einem halben Jahr. 
 Entsprechend dieser Zeitstempel sind die \glspl{achmnt} in Akkordeons
 gruppiert. Dies führt dazu, dass \glspl{achmnt} übersichtlich einsehbar
 sind.
 
-Eine weitere View gibt es für die Ansicht der Rangliste. Hier wird
+Eine weitere \Gls{view} gibt es für die Ansicht der Rangliste. Hier wird
 der derzeit eingeloggten Person eine Rangliste mit den Personen, die
 zu einer ähnlichen Zeit angefangen haben, angezeigt. Jeder wird mit Platzierung,
 Punktzahl, Name, sowie der Email-Adresse angezeigt (\autoref{abb:ranking}).
 
-Eine letzte View ist dazu da, \glspl{achmnt} verwalten zu können.
-Die View ist ähnlich aufgebaut, wie die \glspl{achmnt}-View. Neben den Akkordeon-Headern befindet sich
+Eine letzte \Gls{view} dient der Verwaltung von \Glspl{achmnt}.
+Die \Gls{view} ist ähnlich aufgebaut, wie die \glspl{achmnt}-\Gls{view}. Neben den Akkordeon-Headern befindet sich
 zusätzlich jeweils ein weiterer Button, um neue \glspl{achmnt} für diesen Zeitpunkt
 hinzufügen zu können. Anstatt \glspl{achmnt} abzuhaken zu können, findet der Nutzer hier
-einen Button, um \glspl{achmnt} zu bearbeiten oder zu löschen. (\autoref{abb:achievements_manage}).
+einen Button, um \glspl{achmnt} zu bearbeiten oder zu löschen (\autoref{abb:achievements_manage}).
 
 Beim Hinzufügen oder Bearbeiten eines \glspl{achmnt} öffnet sich ein
 \Gls{modal}. Ín diesem Dialogfenster kann der deutsche und englische Text, sowie der
 Zeitpunkt für die Freischaltung des Achievements und die Punktzahl eingestellt werden (\autoref{abb:modal}). 
-Bei BEstätigung des Dialoges werden die Daten in die Datenbak übertragen und dort gespeichert.
+Bei Bstätigung des Dialoges werden die Daten in die Datenbak übertragen und dort gespeichert.
 Fehlende Eingaben werden dem Nutzer über eine Eingabeaufforderung am jeweiligen Eingabefeld gekennzeichnet.
 
 Um ein einheitliches Design mit anderen internen Applikationen der BREDEX GmbH herzustellen, wurde der Stil der Software
-am BREDEX-Styleguide orientiert. Hier sind grundsätzliche Designentscheidungen für BREDEX-Software, wie zB Farben oder Schrift normiert.
+am BREDEX-Styleguide orientiert. Hier sind grundsätzliche Designentscheidungen für BREDEX-Software, wie z.B. Farben oder Schrift normiert.
 Auch die Login-Seite ist dem standardisierten Design der BREDEX GmbH angepasst.
 
 \subsection{Datenbank}
 
-Bei der Datenbank handelt es sich um die \gls{NoSQL} Datenbank \gls{firebase}
+Bei der Datenbank handelt es sich um die \gls{NoSQL}-Datenbank \gls{firebase}
 von \gls{firestore}. Die Daten werden im JSON-Format gespeichert. Hierbei wird
-von Sammlungen und Attributen gesprochen. Sammlungen sind mehrer JSON-Objekte, mit einer
+von Sammlungen und Attributen gesprochen. Sammlungen sind mehrere JSON-Objekte, mit einer
 ID und einem Datensatz. Dieser Datensatz kann weitere Sammlungen beinhalten,
 sowie Attribute wie beispielsweise Zahlen, Zeichenketten oder Arrays.
 
-Um die \glspl{achmnt} und die Daten der Nutzer der Anwendung speichern zu können
+Um die \glspl{achmnt} und die Daten der Nutzer der Anwendung speichern zu können,
 wurden in der Datenbank jeweils Sammlungen angelegt. Die Referenzen der Nutzer zu ihren
-erledigten Achievements werden in einer Liste an IDs gespeichert, anstatt eine Benutzereigene Sammlung für Achievements
-anzulegen. Dies entspricht eher einem relationalen Ansatz, der eher unüblich für NoSQL Datenbanken ist.
+erledigten Achievements werden in einer ID-Liste gespeichert, anstatt eine Benutzereigene Sammlung für Achievements
+anzulegen. Dies entspricht eher einem relationalen Ansatz, der eher unüblich für \Gls{NoSQL}-Datenbanken ist.
 Die Entscheidung wurde getroffen, um die Redundanz von Daten zu verringern und das Pflegen von Achievements
 einfacher Umsetzen zu können. 
 % hiervor könntest du noch dediziert schreiben wofür eine Sammlung steht. Das wird hier nicht klar -- jetzt klar?
@@ -537,33 +545,33 @@ einfacher Umsetzen zu können.
 
 \section{Implementierungsphase}
 In der Implementierungsphase wird die Anwendung programmiert. Hierbei werden die,
-in der Planungs- und Designphase erstellten, Strukturen und Modellen genutzt, um die Software möglichst ohne
+in der Planungs- und Designphase erstellten, Strukturen und Modelle genutzt, um die Software möglichst ohne
 Komplikationen umsetzen zu können.
 
 \subsection{Frontend}
 
 % installation
 
-Im Frontend wird das Webframework Vue eingesetzt. Dieses baut auf den
+Im Frontend wird das Webframework \Gls{vue} eingesetzt. Dieses baut auf den
 standard Websprachen HTML, JavaScript und CSS auf. 
-Vue nutzt komponentenbasierte Programmierung, indem es HTML um die Möglichkeit
-erweitert, Templates zu erzeugen. Diese Templates werden dann entsprechend dem zugrunde 
-liegenden Java-Scripts die GUI erzeugen. % Erklärung besser ?
-In dieser Anwendung wird Vue-Routing genutzt um eine \gls{spa} zu
-erstellen. Die Webseite besteht bei einer \gls{spa} nur aus einer HTML Datei. Diese Datei
-wird von Vue im Buildprozess der Anwendung erstellt. Der Inhalt des HTML kann dynamisch mit den
+\Gls{vue} nutzt komponentenbasierte Programmierung, indem es HTML um die Möglichkeit
+erweitert, Templates zu erzeugen. Durch diese Templates wird dann, entsprechend dem zugrunde 
+liegenden Java-Scripts, die GUI erzeugt. % Erklärung besser ?
+In dieser Anwendung wird Vue-Routing genutzt, um eine \gls{spa} zu
+erstellen. Die Webseite besteht bei einer \gls{spa} nur aus einer HTML-Datei. Diese Datei
+wird von \Gls{vue} im Buildprozess der Anwendung erstellt. Der Inhalt des HTML kann dynamisch mit den
 verschidenen Komponenten ausgetauscht werden.
 
-Standardmäßig wird in Vue die Scriptsprache JavaScript genutzt. Das Framework
+Standardmäßig wird in \Gls{vue} die Scriptsprache JavaScript genutzt. Das Framework
 kann auch mit der Sprache TypeScript genutzt werden, wofür sich in diesem
 Projekt entschieden wurde, um die Vorteile von Typisierung nutzen zu können.
 Dadurch können gewisse Fehler bereits zur Kompilierzeit vom Compiler entdeckt werden und
 die Anwendung gegenüber Fehlern robsuter gemacht werden.
 
-Vue stellt seit Version 3.0 auch eine neue \gls{api} zur Verfügung: die Composition API.
-Die Vorteile gegenüber der, in Vue Standardmäßig genutzten, Options API, ist die Möglichkeit,
+\Gls{vue} stellt seit Version 3.0 auch eine neue \gls{api} zur Verfügung: die Composition \Gls{api}.
+Die Vorteile gegenüber der, in \Gls{vue} standardmäßig genutzten, Options \Gls{api}, ist die Möglichkeit,
 den Code variabler und besser strukturieren zu können. Dies verbessert die Lesbarkeit und Qualität des
-Codes. Außerdem erleichtert die Composition API die Wiederverwendbarkeit
+Codes. Außerdem erleichtert die Composition \Gls{api} die Wiederverwendbarkeit
 von Code in verschiedenen Komponenten, was eine große Auswirkung auf Codequalität und
 Fehlerrobustheit hat.
 
@@ -584,37 +592,37 @@ der Benutzer erledigen kann.
 \Glspl{achmnt}, die noch zu erledigen sind, werden hierbei hervorgehoben, um leichter den
 Überblick behalten zu können (\autoref{abb:achievements}).
 Am oberen Rand der Website gibt es eine kurze Einführung in die Website und eine Fortschrittsleiste
-zeigt an, wie viel der Nutzer bereits geschafft hat.
+zeigt an, wie viel der Nutzer bereits erledigt hat.
 Jede Vue-Komponente hat
 hat ihren eigenen Lifecycle. Hierzu gehören beispielsweise das Erstellen, Mounten,
 Aktualisieren oder Unmounten der Komponente. Der OnMounted-Lifecycle Hook wird hier genutzt,
 um kurz vor dem Anzeigen der Komponente, die Daten aus der Datenbank zu laden.
 Diese Vorgehensweise wird in anderen Komponenten ebenfalls genutzt, um Daten zu laden. 
 
-Als nächstes wird die Login-View erstellt. Da in der BREDEX GmbH Microsoft Accounts
+Als nächstes wurde die Login-\Gls{view} erstellt. Da in der BREDEX GmbH Microsoft Accounts
 genutzt werden, kann sich der Nutzer hier mit diesem Anmelden. Außerdem werden neue Nutzer
 erkannt, indem \glspl{uuid} verglichen werden und für jeweilige Nutzer neue Einträge in der
 Datenbank erstellt.
 
 Im Anschluss wurde die Rangliste erstellt. Hier werden Mitarbeiter, die bis zu einem Monat vor oder
-nach einem angefangen haben tabellenartig mit Name, Punktzahl dargestellt. % unnötig? -d
+nach dem aktuellen Nutzer angefangen haben, tabellenartig mit Name, Punktzahl, Email und Platzierung dargestellt. % unnötig? -d
 
-Die letzte View ist zum Verwalten der \glspl{achmnt}. Auf diese View sollen nur Personen
+Die letzte \Gls{view} dient der Verwaltung der \glspl{achmnt}. Auf diese \Gls{view} sollen nur Personen
 aus bestimmten Gruppen, wie beispielsweise der Personalabteilung, Zugriff erhalten. Dieser Zugriff
 kann mit dem Vue-Router implementiert werden, welcher eine Möglichkeit hat, eine Bedingung
 an die Weiterleitung an eine Addresse zu binden. In dieser Bedingung wird die Rolle des
 Nutzers abgefragt. Da diese bei der Anmeldung über \gls{firebase} nicht mit dem Access-Token
 übergeben wird, muss sich separat mit dem Azure Portal verbunden werden, um diese abzufragen.
 
-Um zuletzt die Mehrsprachigkeit umzusetzen, wird das Vue Plugin \gls{vuei18n} genutzt.
+Um die Mehrsprachigkeit umzusetzen, wird das Vue-Plugin \gls{vuei18n} genutzt.
 In einer separaten Datei wird zu jedem Text der Anwendung im JSON-Format ein Key gespeichert, zusammen mit
-die jeweiligen Übersetzungen. In dem HTML-Template wird nun anstelle des Textes der Key eingetragen,
+den jeweiligen Übersetzungen. In dem HTML-Template wird nun anstelle des Textes der Key eingetragen,
 welcher beim Erstellen der Komponente, je nach aktuell eingestellter Sprache, durch die Übersetzung
 ersetzt wird.
 
-Um die Anwendung bei Änderungen von Werten automatisch zu aktualisieren, gibt es in Vue ein Attribut, das eine
-Variable erhalten kann: das \Gls{ref}. Vue rendert das DOM, bevor es auf dem Bildschirm dargestellt wird.
-Dadurch werden im Nachhinein veränderte Werte nicht mehr dargesetellt. \Glspl{ref} haben hierbei einen Sonderstatus.
+Um die Anwendung bei Änderungen von Werten automatisch zu aktualisieren, gibt es in \Gls{vue} ein Attribut, das eine
+Variable erhalten kann: das \Gls{ref}. \Gls{vue} rendert das DOM, bevor es auf dem Bildschirm dargestellt wird.
+Dadurch werden im Nachhinein veränderte Werte nicht mehr dargestetellt. \Glspl{ref} haben hierbei einen Sonderstatus.
 Sobald sich die Variable mit dem Attribut ändert, wird die Komponente mit dem neuen Wert neu berechnet.
 
 
@@ -622,20 +630,20 @@ Sobald sich die Variable mit dem Attribut ändert, wird die Komponente mit dem n
 \subsection{Backend}
 
 Für das Backend wird das \gls{baas} \gls{firebase} genutzt. Darin sind verschiedene Optionen zur Benutzeranmeldung, 
-wovon nur die Anmeldung über Micorsoft genutzt wird, sowie die NoSQL Datenbank \gls{firestore} enthalten. 
-Als erstes muss das Backend mit der Software verbunden werden. Dafür muss als erstes die Firebase SDK mit dem Befehl
+wovon nur die Anmeldung über Micorsoft genutzt wird, sowie die \Gls{NoSQL}-Datenbank \gls{firestore} enthalten. 
+Als erstes muss das Backend mit der Software verbunden werden. Dafür wird als erstes die Firebase SDK mit dem Befehl
 
-\texttt{npm install firebase}\newline über Node.js installiert werden und im Anschluss in den
-Abhängigkeiten der Vue-Anwendung hinzugefügt werden.
-Nun muss nur noch die Vue-App mit den Firebase Einstellungen configuriert werden.
+\texttt{npm install firebase}\newline über Node.js installiert und im Anschluss in den
+Abhängigkeiten der Vue-Anwendung hinzugefügt.
+Anschließend wird die Vue-App mit den Firebase Einstellungen configuriert.
 
-Als nächstes wird die Datenbank erstellt. Die \gls{NoSQL} Datenbank basiert auf JSON-ähnlichen
+Als nächstes wird die Datenbank erstellt. Die \gls{NoSQL}-Datenbank basiert auf JSON-ähnlichen
 Dateistrukturen. Man kann Sammlungen mit verschiedenen Elementen erstellen. Diese Elemente haben jeweils eine ID, welche
-als Zeichenkette gespeichert wird. Für Nutzer und \glspl{achmnt} werden jeweils eine Sammlung angelegt. 
+als Zeichenkette gespeichert wird. Für Nutzer und \glspl{achmnt} wird jeweils eine Sammlung angelegt. 
 
 Die \glspl{achmnt} müssen für beide Sprachen ihren Text enthalten, welcher jeweils als Zeichenkette gespeichert wird.
-Des weiteren muss der Zeitpunkt gespeichert werden, in dem das \gls{achmnt} freigeschaltet wird. Da diese an vier verschiedenen
-möglichen Zeitpunkten freigeschaltet werden können, wurde die Entscheidung getroffen, für das Attribut ein Wert von 0 bis 3 zu speichern.
+Des Weiteren muss der Zeitpunkt gespeichert werden, in dem das \gls{achmnt} freigeschaltet wird. Da diese an vier verschiedenen
+möglichen Zeitpunkten freigeschaltet werden können, wurde die Entscheidung getroffen, für das Attribut einen Wert von 0 bis 3 zu speichern.
 Dadurch können die \glspl{achmnt} leicht gruppiert und mit einem Zähler iteriert werden.
 Die Punkte, die jedes \gls{achmnt} hat, werden in einer Ganzzahl von 0 bis 5 gespeichert.
 
@@ -643,9 +651,9 @@ Für die ID des Nutzers wird dessen Micorsoft-\gls{uuid} genutzt. So kann nach d
 Daten eines bestimmten Nutzers zugegriffen werden. Abgesehen von der ID wird für den Nutzer der Zeitpunkt gespeichert, an der sich der Nutzer das erste mal
 angemeldet hat. Dadurch kann beim Abruf der Nutzer für die Rangliste bereits in der Datenbank gefiltert werden.
 Weiterhin werden noch Stammdaten wie Name oder Email-Addresse gespeichert.
-Zuletzt wird für jeden Nutzer noch eine Liste an Zeichenketten gepeichert. Diese Liste beinhält alle IDs der \glspl{achmnt}, die der
-Nutzer bereits erledigt hat. Über diese IDs kann effizient die Liste an erledigten \glspl{achmnt} geholt werden, um Punkte oder
-die prozentuelle Anzahl erledigter \glspl{achmnt} zu berechnen.
+Zuletzt wird für jeden Nutzer noch eine Liste an Zeichenketten gepeichert. Diese Liste beinhaltet alle IDs der \glspl{achmnt}, die der
+Nutzer bereits erledigt hat. Über diese IDs kann effizient die Liste an erledigten \glspl{achmnt} geladen werden, um Punkte oder
+die prozentuale Anzahl erledigter \glspl{achmnt} zu berechnen.
 
 
 %---------------------------------------------------------------
@@ -662,20 +670,23 @@ Mithilfe von \gls{unittest} wurde während der Entwicklungsphase sichergestellt,
 \gls{unittest} werden während der Implementierung der Software automatisiert ausgeführt, um Fehler schnell erkennen und beheben 
 zu können.
 
-In regelmäßigen Abständen führte der Prüfungsteilnehmer \gls{expltest} durch. Hierbei wird die GUI mit fehlerhafte oder falsche
+In regelmäßigen Abständen führte der Prüfungsteilnehmer \gls{expltest} durch. Hierbei wird die GUI durch falsche
 Eingaben auf Robustheit getestet. Damit wird sichergestellt, dass bei falscher Bedienung der Software keine ungewollten
 Fehler auftreten, die den Nutzer von seiner Arbeit abhalten. 
 
-Da bei der Software die Usability im Vordergrund steht, wurden zusätzlich \glspl{usertest} durchgeführt. Bei diesem Testverfahren werden Nutzern, die
-die Software noch nicht kennen, Aufgaben gestellt. Diese Aufgaben sollen erledigt werden und Gedankengänge erläutert werden. Dadurch wird überprüft, 
+Da bei der Software die Usability im Vordergrund steht, wurden zusätzlich \glspl{usertest} durchgeführt. Bei diesem Testverfahren wurden Nutzern, die
+die Software noch nicht kannten, Aufgaben gestellt. Diese Aufgaben sollten erledigt und Gedankengänge erläutert werden. Dadurch wurde überprüft, 
 ob die GUI intuitiv bedienbar ist und sich Aufgaben ohne Komplikationen erledigen lassen. Falls sich Differenzen zwischen dem Design und den Erwartungen des Nutzers
 feststellen lassen, kann das Design im Anschluss angepasst und verbessert werden.
+Eine Differenz, die hierbei festgestellt wurde ist, dass der Nutzer beim Anklicken des Namens der Anwendung in der Navigationsleiste erwartet, auf die
+Home-Seite der Anwendung zu kommen, was in diesem Fall die Achievement-\Gls{view} ist. Dieses Feature wurde im Folgenden implementiert.
+Ansonsten konnten alle Aufgaben ohne Probleme bearbeitet werden.
 
 Bei den Testverfahren wurden außerdem die Dienste eines Test-Consultants in Anspruch genommen, um die Anwendung noch einmal
-ohne Einfluss der Projektleitung oder des Programmierers die Software zu testen. Hierbei wurden noch ein paar kleinere Bugs gefunden.
+ohne Einfluss der Projektleitung oder des Programmierers zu testen. Hierbei wurden ein paar kleinere Bugs gefunden.
 Diese wurden im Anschluss vom Prüfungsteilnehmer bearbeitet und korrigiert.
 
-Außerdem gab es Code Reviews von erfahreneren Entwicklern, um Codequalität sicherzustellen, oder effizientere Wege gezeigt zu bekommen,
+Außerdem gab es Code Reviews von erfahreneren Entwicklern, um die Codequalität sicherzustellen und um effizientere Wege gezeigt zu bekommen,
 um diese im Anschluss anwenden zu können.
 
 
@@ -689,7 +700,7 @@ um diese im Anschluss anwenden zu können.
 Zum Abschluss des Projektes fand ein Abnahmegespräch mit der Projektbetreuung statt. Bei diesem
 Gespräch wurde in einem Abnahmetest überprüft, ob alle Projektziele erreicht wurden.
 Das Ergebnis des Tests war sehr gut.
-Es ist geplant die Software in naher Zukunft bei BREDEX im produktiven 
+Es ist geplant, die Software in naher Zukunft bei BREDEX im produktiven 
 Betrieb zu nutzen.
 
 
@@ -708,25 +719,25 @@ Betrieb zu nutzen.
 Während der Durchführung der Projektarbeit kam es zu kleinen Differenzen zu der initialen Zeitplanung.
 
 Da ein paar Anforderungen während der Implementierungsphase hinzu kamen, musste in die Designphase zurückgewechselt werden, da
-das Design erst überarbeitet werden musste, um den neuen Anforderungen zu berücksichtigen. Dieser Aufwand kostete den Prüfungsteilnehmer in etwa eine Stunde. 
+das Design erst überarbeitet werden musste, um die neuen Anforderungen zu berücksichtigen. Dieser Aufwand kostete den Prüfungsteilnehmer in etwa eine Stunde. 
 
-In der Implementierungsphase kam es durch zusätzlich erforderliche Einarbeitung in die Webentwicklung und das Vue Framework zu einigen Verzögerungen.
+In der Implementierungsphase kam es durch zusätzlich erforderliche Einarbeitung in die Webentwicklung und das \Gls{vue}-Framework zu einigen Verzögerungen.
 Diese Verzögerungen konnten jedoch durch gut gewählte Bibliotheken und Frameworks wieder aufgeholt werden.
 Insgesamt konnte sogar eine Stunde zusätzlich gewonnen werden, da in der Designphase gut genug gearbeitet wurde,
 um scheller Implementieren zu können als ursprünglich geplant. 
 
 Die restlichen Phasen wurden gut eingeschätzt, wodurch keine weiteren Abweichungen in der Zeitplanung während der 
 Projektdurchführung auftraten.\newline
-Ein graphischen Vergleich der Änderungen der Zeitplanung bietet \autoref{table:timediff}.
+Einen graphischen Überblick über die Änderungen der Zeitplanung bietet \autoref{table:timediff}.
 
-Da sich im Projektverlauf keine Anfangs ungeplanten Ressourcen benötigt wurden, gibt es keine Differenzen in der Kosten- oder
+Da im Projektverlauf keine ungeplanten Ressourcen benötigt wurden, gibt es keine Differenzen in der Kosten- oder
 Ressourcenplanung.
 
 
 \subsection{Lessons learned}
 
-Während des Projektes lernte der Prüfungsteilnehmer sehr viel über Webentwicklung und das Erstellen und Umsetzen von Projekten.
-Vor allem die Wichtigkeit und Auswirkung einer guten Design und Analysephase in einem Projekt haben sich gezeigt.
+Während des Projektes lernte der Prüfungsteilnehmer sehr viel über Webentwicklung und das Planen und Umsetzen von Projekten.
+Vor allem die Wichtigkeit und Auswirkung einer guten Design- und Analysephase in einem Projekt haben sich gezeigt.
 Aber auch die Wahl von Technologie und genutzten Bibliotheken können einen großen Einfluss auf den flüssigen und schnellen
 Ablauf der Softwareentwicklung haben.
 
@@ -892,7 +903,9 @@ OnMounted(async () => {
 \begin{itemize}
     \item Windows 10 Professional
     \item VisualStudio Code
-    \item Git
+    \item \Gls{firebase} als \gls{baas}
+    \item \Gls{firestore} als Datenbank
+    \item \Gls{git}
     \item GitLab
     \item GitHub
 \end{itemize}
@@ -903,8 +916,13 @@ OnMounted(async () => {
     \item Tastatur
     \item Maus
 \end{itemize}
-
+\newpage
+\phantomsection\addcontentsline{toc}{section}{Benutzerdokumentation}
+\includepdf[pages=-]{./benutzerdoku/userdoku.pdf}
+\phantomsection\addcontentsline{toc}{section}{Projektantrag}
 \includepdf[pages=-]{./pictures/Projektantrag.pdf}
+\phantomsection\addcontentsline{toc}{section}{Bestätigung über die durchgeführte Projektarbeit}
+\includepdf[pages=-]{./pictures/Bestätigung.pdf}
 
 % Bestätigung
 
