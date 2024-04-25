@@ -1,11 +1,5 @@
 # Testing (I'd rather test dying) #
 
-## Inhaltsverzeichnis
-- #### [1 Klassifizierung con Testverfahren](#1)
-    - ##### [1.1 Wer testet?](#1.1)
-        - ###### [1.1.1 Mensch (manuell) vs. Maschine (automatisch)](#1.1.1)
-        - ###### [1.1.2 Entwickler vs Benutzer](#1.1.2)
-
 ## 1 Klassifizierung von Testverfahren {#1}
 
 ### 1.1 Wer testet? {#1.1}
