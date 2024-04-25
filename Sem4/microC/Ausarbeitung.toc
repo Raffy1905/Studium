@@ -1,0 +1,26 @@
+\babel@toc {ngerman}{}\relax 
+\contentsline {section}{\numberline {1}Einleitung}{3}{}%
+\contentsline {section}{\numberline {2}Berechnungen}{3}{}%
+\contentsline {subsection}{\numberline {2.1}Minimale und Maximale Zeit zwischen zwei Zähnen}{3}{}%
+\contentsline {subsection}{\numberline {2.2}Berechnung der Frequenzen}{4}{}%
+\contentsline {subsection}{\numberline {2.3}Berechnung der Impulslänge}{4}{}%
+\contentsline {section}{\numberline {3}Bestimmung der Zahnlücke}{5}{}%
+\contentsline {subsection}{\numberline {3.1}Vorgang}{5}{}%
+\contentsline {subsection}{\numberline {3.2}Konfiguration}{5}{}%
+\contentsline {subsection}{\numberline {3.3}Interrupt Service Routine}{6}{}%
+\contentsline {section}{\numberline {4}Bestimmung der Drehzahl}{6}{}%
+\contentsline {subsection}{\numberline {4.1}Funktion}{6}{}%
+\contentsline {subsubsection}{\numberline {4.1.1}Möglichkeit 1}{6}{}%
+\contentsline {subsubsection}{\numberline {4.1.2}Möglichkeit 2}{7}{}%
+\contentsline {subsection}{\numberline {4.2}Konfiguration}{7}{}%
+\contentsline {section}{\numberline {5}Interrupt Service Routine}{7}{}%
+\contentsline {section}{\numberline {6}Bestimmung der Position}{7}{}%
+\contentsline {subsection}{\numberline {6.1}Funktion}{7}{}%
+\contentsline {subsection}{\numberline {6.2}Konfiguration}{8}{}%
+\contentsline {subsection}{\numberline {6.3}Interrupt Service Routine}{8}{}%
+\contentsline {section}{\numberline {7}Generation eines Impulses}{8}{}%
+\contentsline {subsection}{\numberline {7.1}Funktion}{8}{}%
+\contentsline {subsection}{\numberline {7.2}Konfiguration}{9}{}%
+\contentsline {subsection}{\numberline {7.3}Interrupt Service Routine}{9}{}%
+\contentsline {section}{\numberline {8}Anhang}{10}{}%
+\contentsline {subsection}{\numberline {8.1}Interrupt Service Routines in Pseudocode}{10}{}%
