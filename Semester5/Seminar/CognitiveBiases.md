@@ -1,7 +1,7 @@
 placebic explanations have a similar level of trust as real explanations => unjustified trust
-Dual Process Theory -> Menschen verlassen sich auf Heuristiken und kognitive Vorurteile, um Entscheidungen zu treffen
+Dual Process Theory -> Menschen verlassen sich auf Heuristiken und kognitive Verzerrungen, um Entscheidungen zu treffen
 => "systematic error in judgement and decisionmaking common to all human beings which can be due to cognitive limitations, motivational factors, and/or adaptations to natural environment." - Amos Tversky, Daniel Kahneman 
-Kognitive Vorurteile verändern die Interpretation von AI Modellen
+Kognitive Verzerrungen verändern die Interpretation von AI Modellen
 
 ## Explanatory heuristics affecting XAI Design
 
@@ -42,5 +42,16 @@ Representativeness bias | Prototype cases of decision outcomes | Medical dignosi
 Tendency to believe persuasive claims unsupported by evidence | Natural language explanations | Fake news detection / lay users
 Pre-use algorithmic optimism | local feature importance (word highlighting) | Emotional analysis / lay users
 
+XAI gibt die Möglichkeit, kognitive Verzerrungen der Nutzer zu vermindern. HIerfür wird vor allem Wert auf große Transparenz gesetzt
+
+**Example:** Pre-use algorithmic optimism  
+*Pre-use algorithmic optimism:* Positive Erwartungen an ein transparentes System vor der Nutzung  
+Das System wird schnell Überschätzt. Um dem zu entgehen werden Erklärungen nur schrittweise oder auf Nachfrage gezeigt, um die Nutzer davon abzuhalten Vertrauen zu verlieren, wenn das System nicht ihren Erwartungen entspricht.
+
+
+## Cognitive biases in AI-aided descisions that are exacerbated by explainability
+
+Der Nutzer hat die Wahl zwischen, AI zu vertrauen oder große Erklärungen zu lesen -> Entwickeln von Heuristiken wann und ob man die Erklärungen liest - wird durch XAI verstärkt  
+Erklärungen können zudem falsch sein, was eine weitere Fehlerquelle zu AI hinzufügt -> Entdecken und Verhindern von Fehlern wird immer anpruchsvoller (Menschen sind schlecht darin, Falsche Informationen Wahrzunehmen)  
 
 
