@@ -84,6 +84,10 @@ https://www.sciencedirect.com/science/article/pii/S1877050919304247
 versuchen alle Modelle erklärbar zu machen, ohne Wissen über das spezifische Modell.  
 Beispiel: Linear Classifier auf die Ergebnisse des neuronalen Netzes geschaltet. Senkt die genauigkeit des Modells, erlaubt aber eine Erklärung. [1]
 
+The explanations created with local surrogate models can use other (interpretable) features than the original model was trained on.. Of course, these interpretable features must be derived from the data instances. A text classifier can rely on abstract word embeddings as features, but the explanation can be based on the presence or absence of words in a sentence. A regression model can rely on a non-interpretable transformation of some attributes, but the explanations can be created with the original attributes. For example, the regression model could be trained on components of a principal component analysis (PCA) of answers to a survey, but LIME might be trained on the original survey questions. Using interpretable features for LIME can be a big advantage over other methods, especially when the model was trained with non-interpretable features. [10]
+
+Disadvantages !
+
 ## Kontrafaktische Modelle
 
 *Counterfactual Method*  
