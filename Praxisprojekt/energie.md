@@ -23,6 +23,9 @@ $\Delta T$: Unterschied Innen- und Außentemperatur
 $K$: Koeffizient des Verlust (hier schätzungsweise 1,0-1,9)
 
 
+# Messen der Heizleistung
+
+
 
 
 
