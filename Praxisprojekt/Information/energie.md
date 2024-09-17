@@ -17,18 +17,32 @@ $$ Heizleistung = U-Wert \times Area \times (T_i - t_o)$$
 
 ## Berechnen der Heizleistung  
 Quelle: https://www.dimu.de/bau-heizen-entfeuchten-lueften/waermebedarf-berechnen/
+
+
 Heizleistung in kW $ = V \times \Delta T \times K/860$  
 $V$: Raumvolumen in $m^3$  
 $\Delta T$: Unterschied Innen- und Außentemperatur  
-$K$: Koeffizient des Verlust (hier schätzungsweise 1,0-1,9)
+$K$: Koeffizient des Verlust
+
+Wärmeleistung:  
+$ P = Q / t $  
+$Q$: abgegebene Wärme
+
+Energie: Integral der Temperaturdifferenz über der Zeit  
+$\int_{a}^{b}(\vartheta_{Heizung} - \vartheta_{Raum}) dt$
+
+$Q = \dot{m} \cdot c \cdot (T_{\text{Ende}} - T_{\text{Start}})$  
+$P = Q / \delta t$
 
 
-# Messen der Heizleistung
 
 
 
+## Kontakte
+Ostfalia Wolfenbüttel:
+Professor Dr.-Ing. Christian Heikel
 
+TU Braunschweig:
+Dipl.-Ing. Martin Buchholz
 
-https://www.youtube.com/watch?v=D-h8AYkpXyE  
-https://www.youtube.com/watch?v=iVXllgfjmeQ  
-https://www.youtube.com/watch?v=uRJBtE80m-E
+https://www.tu-braunschweig.de/ift/mitarbeiter/hassani-hamidreza

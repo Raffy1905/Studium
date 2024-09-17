@@ -22,3 +22,8 @@ Option 1: Magnetische Sensoren (Reed-Sensor)
 Option 2: Ultraschallsensoren  
 Option 3: Mechanische Sensoren  
 Option 4: Kontaktsensoren
+
+
+
+
+# Anderer Testraum mit Sperrthermostaten
